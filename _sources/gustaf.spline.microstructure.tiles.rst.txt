@@ -1,0 +1,45 @@
+
+gustaf.spline.microstructure.tiles
+==================================
+
+
+.. toctree::
+   :maxdepth: 4
+
+
+
+
+gustaf.spline.microstructure.tiles.crosstile2d
+----------------------------------------------
+
+.. automodule:: gustaf.spline.microstructure.tiles.crosstile2d
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.microstructure.tiles.crosstile3d
+----------------------------------------------
+
+.. automodule:: gustaf.spline.microstructure.tiles.crosstile3d
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.microstructure.tiles.inversecrosstile3d
+-----------------------------------------------------
+
+.. automodule:: gustaf.spline.microstructure.tiles.inversecrosstile3d
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.microstructure.tiles.tilebase
+-------------------------------------------
+
+.. automodule:: gustaf.spline.microstructure.tiles.tilebase
+   :members:
+   :undoc-members:
+   :show-inheritance:

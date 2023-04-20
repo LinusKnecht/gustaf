@@ -1,0 +1,1568 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 --><title>Index - gustaf 0.0.9 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">API references</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="gustaf.html">gustaf</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.spline.html">gustaf.spline</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges.__init__">__init__() (gustaf.edges.Edges method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.__init__">(gustaf.faces.Faces method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.ComputedData.__init__">(gustaf.helpers.data.ComputedData method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.__init__">(gustaf.helpers.data.DataHolder method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineData.__init__">(gustaf.helpers.data.SplineData method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.__init__">(gustaf.helpers.data.SplineDataAdaptor method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.VertexData.__init__">(gustaf.helpers.data.VertexData method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option.__init__">(gustaf.helpers.options.Option method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.__init__">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.raise_if.ModuleImportRaiser.__init__">(gustaf.helpers.raise_if.ModuleImportRaiser method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.__init__">(gustaf.spline.base.Bezier method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.__init__">(gustaf.spline.base.BSpline method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.__init__">(gustaf.spline.base.GustafSpline method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS.__init__">(gustaf.spline.base.NURBS method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.__init__">(gustaf.spline.base.RationalBezier method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.create.Creator.__init__">(gustaf.spline.create.Creator method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.__init__">(gustaf.spline.extract.Extractor method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.__init__">(gustaf.spline.ffd.FFD method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.__init__">(gustaf.spline.microstructure.microstructure.Microstructure method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.__init__">(gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.__init__">(gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.__init__">(gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.__init__">(gustaf.spline.microstructure.tiles.tilebase.TileBase method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.proximity.Proximity.__init__">(gustaf.spline.proximity.Proximity method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.visualize.SplineShowOption.__init__">(gustaf.spline.visualize.SplineShowOption method)</a>
+</li>
+          <li><a href="gustaf.utils.html#gustaf.utils.tictoc.Tic.__init__">(gustaf.utils.tictoc.Tic method)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.__init__">(gustaf.vertices.Vertices method)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.__init__">(gustaf.volumes.Volumes method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.io.html#gustaf.io.ioutils.abs_fname">abs_fname() (in module gustaf.io.ioutils)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option.allowed_types">allowed_types (gustaf.helpers.options.Option attribute)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.arc">arc() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.arrow_data_only">arrow_data_only (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineData.as_arrow">as_arrow() (gustaf.helpers.data.SplineData method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.VertexData.as_arrow">(gustaf.helpers.data.VertexData method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineData.as_scalar">as_scalar() (gustaf.helpers.data.SplineData method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.VertexData.as_scalar">(gustaf.helpers.data.VertexData method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.as_vertex_data">as_vertex_data() (gustaf.helpers.data.SplineDataAdaptor method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option.backend">backend (gustaf.helpers.options.Option attribute)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.BC">BC (gustaf.faces.Faces attribute)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier">Bezier (class in gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.bezier">bezier (gustaf.spline.base.Bezier property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.beziers">beziers() (gustaf.spline.extract.Extractor method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.boundaries">boundaries() (gustaf.spline.extract.Extractor method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.bounds">bounds() (gustaf.vertices.Vertices method)</a>
+
+        <ul>
+          <li><a href="gustaf.utils.html#gustaf.utils.arr.bounds">(in module gustaf.utils.arr)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.bounds_diagonal">bounds_diagonal() (gustaf.vertices.Vertices method)</a>
+
+        <ul>
+          <li><a href="gustaf.utils.html#gustaf.utils.arr.bounds_diagonal">(in module gustaf.utils.arr)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.bounds_diagonal_norm">bounds_diagonal_norm() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.bounds_mean">bounds_mean() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.bounds_norm">bounds_norm() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.create.html#gustaf.create.faces.box">box() (in module gustaf.create.faces)</a>
+
+        <ul>
+          <li><a href="gustaf.create.html#gustaf.create.volumes.box">(in module gustaf.create.volumes)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.create.box">(in module gustaf.spline.create)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline">BSpline (class in gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.bspline">bspline (gustaf.spline.base.Bezier property)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.bspline">(gustaf.spline.base.BSpline property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges.centers">centers() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.io.html#gustaf.io.ioutils.check_and_makedirs">check_and_makedirs() (in module gustaf.io.ioutils)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.circle">circle() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.clear">clear() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.clear">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.close_rows">close_rows() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.proximity.Proximity.closest_control_points">closest_control_points() (gustaf.spline.proximity.Proximity method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.proximity.closest_control_points">(in module gustaf.spline.proximity)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.proximity.closest_parametric_coordinate">closest_parametric_coordinate() (in module gustaf.spline.proximity)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.closing_tile">closing_tile() (gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.closing_tile">(gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.closing_tile">(gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.ComputedData">ComputedData (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.ComputedMeshData">ComputedMeshData (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.concat">concat() (gustaf.vertices.Vertices class method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.cone">cone() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.log.configure">configure() (in module gustaf.utils.log)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.const_edges">const_edges (gustaf.edges.Edges property)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.const_edges">(gustaf.faces.Faces property)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.const_elements">const_elements (gustaf.edges.Edges property)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.const_faces">const_faces (gustaf.faces.Faces property)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.const_faces">(gustaf.volumes.Volumes property)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.const_vertices">const_vertices (gustaf.vertices.Vertices property)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.const_volumes">const_volumes (gustaf.volumes.Volumes property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.control_edges">control_edges() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.control_edges">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.control_faces">control_faces() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.control_faces">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.control_mesh">control_mesh() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.control_mesh">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.control_points">control_points (gustaf.spline.ffd.FFD property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.control_points">control_points() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.control_points">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.control_volumes">control_volumes() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.control_volumes">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.TrackedArray.copy">copy() (gustaf.helpers.data.TrackedArray method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.copy">(gustaf.vertices.Vertices method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.copy_valid_options">copy_valid_options() (gustaf.helpers.options.ShowOption method)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DIntegers.counts">counts (gustaf.helpers.data.Unique2DIntegers attribute)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.create">create (gustaf.spline.base.Bezier attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.create">(gustaf.spline.base.BSpline attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.create">(gustaf.spline.base.GustafSpline property)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS.create">(gustaf.spline.base.NURBS attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.create">(gustaf.spline.base.RationalBezier attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.create">create() (gustaf.spline.microstructure.microstructure.Microstructure method)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.create_tile">create_tile() (gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.create_tile">(gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.create_tile">(gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.Creator">Creator (class in gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D">CrossTile2D (class in gustaf.spline.microstructure.tiles.crosstile2d)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D">CrossTile3D (class in gustaf.spline.microstructure.tiles.crosstile3d)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges.dashed">dashed() (gustaf.edges.Edges method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.dashed">(gustaf.faces.Faces method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.data">data (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder">DataHolder (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.log.debug">debug() (in module gustaf.utils.log)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.deformation_function">deformation_function (gustaf.spline.microstructure.microstructure.Microstructure property)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.ComputedData.depends_on">depends_on() (gustaf.helpers.data.ComputedData class method)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option.description">description (gustaf.helpers.options.Option attribute)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.dim">dim (gustaf.spline.microstructure.tiles.tilebase.TileBase property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.disk">disk() (in module gustaf.spline.create)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges">Edges (class in gustaf.edges)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.edges">edges (gustaf.edges.Edges property)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.edges">edges() (gustaf.faces.Faces method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.edges">(gustaf.spline.extract.Extractor method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.edges">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.edges.EdgesShowOption">EdgesShowOption (class in gustaf.edges)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.elements">elements (gustaf.edges.Edges property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.elevate_degree">elevate_degree() (gustaf.spline.ffd.FFD method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.enforce_len">enforce_len() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.evaluation_points">evaluation_points (gustaf.spline.microstructure.tiles.tilebase.TileBase property)</a>
+</li>
+        <li><a href="gustaf.io.html#gustaf.io.meshio.export">export() (in module gustaf.io.meshio)</a>
+
+        <ul>
+          <li><a href="gustaf.io.html#gustaf.io.mfem.export">(in module gustaf.io.mfem)</a>
+</li>
+          <li><a href="gustaf.io.html#gustaf.io.mixd.export">(in module gustaf.io.mixd)</a>
+</li>
+          <li><a href="gustaf.io.html#gustaf.io.nutils.export">(in module gustaf.io.nutils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.extract">extract (gustaf.spline.base.Bezier attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.extract">(gustaf.spline.base.BSpline attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.extract">(gustaf.spline.base.GustafSpline property)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS.extract">(gustaf.spline.base.NURBS attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.extract">(gustaf.spline.base.RationalBezier attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor">Extractor (class in gustaf.spline.extract)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.Creator.extruded">extruded() (gustaf.spline.create.Creator method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.create.extruded">(in module gustaf.spline.create)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.faces.Faces">Faces (class in gustaf.faces)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.faces">faces (gustaf.faces.Faces property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.faces">faces() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.faces">(gustaf.volumes.Volumes method)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.faces">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.faces_to_edges">faces_to_edges() (in module gustaf.utils.connec)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.faces.FacesShowOption">FacesShowOption (class in gustaf.faces)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD">FFD (class in gustaf.spline.ffd)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.from_bounds">from_bounds() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.create.html#gustaf.create.edges.from_data">from_data() (in module gustaf.create.edges)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.from_mfem">from_mfem() (in module gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.function">function (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.get">get() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.get">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.create.edges
+
+        <ul>
+          <li><a href="gustaf.create.html#module-gustaf.create.edges">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.create.faces
+
+        <ul>
+          <li><a href="gustaf.create.html#module-gustaf.create.faces">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.create.vertices
+
+        <ul>
+          <li><a href="gustaf.create.html#module-gustaf.create.vertices">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.create.volumes
+
+        <ul>
+          <li><a href="gustaf.create.html#module-gustaf.create.volumes">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.edges
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.edges">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.faces
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.faces">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.helpers.data
+
+        <ul>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.data">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.helpers.options
+
+        <ul>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.options">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.helpers.raise_if
+
+        <ul>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.raise_if">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.default
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.default">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.ioutils
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.ioutils">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.meshio
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.meshio">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.mfem
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.mfem">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.mixd
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.mixd">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.io.nutils
+
+        <ul>
+          <li><a href="gustaf.io.html#module-gustaf.io.nutils">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.meshmaker
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.meshmaker">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.segment
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.segment">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.settings
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.settings">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    gustaf.show
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.show">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.base
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.base">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.create
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.create">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.extract
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.extract">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.ffd
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.ffd">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.microstructure.microstructure
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.html#module-gustaf.spline.microstructure.microstructure">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.microstructure.tiles.crosstile2d
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile2d">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.microstructure.tiles.crosstile3d
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile3d">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.microstructure.tiles.inversecrosstile3d
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.inversecrosstile3d">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.microstructure.tiles.tilebase
+
+        <ul>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.tilebase">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.proximity
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.proximity">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.spline.visualize
+
+        <ul>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.visualize">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.utils.arr
+
+        <ul>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.arr">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.utils.connec
+
+        <ul>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.connec">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.utils.log
+
+        <ul>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.log">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.utils.tictoc
+
+        <ul>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.tictoc">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.vertices
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.vertices">module</a>
+</li>
+        </ul></li>
+        <li>
+    gustaf.volumes
+
+        <ul>
+          <li><a href="gustaf.html#module-gustaf.volumes">module</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline">GustafSpline (class in gustaf.spline.base)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.has_evaluate">has_evaluate (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.has_function">has_function (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.has_locations">has_locations (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.hexa_to_quad">hexa_to_quad() (in module gustaf.utils.connec)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DFloats.ids">ids (gustaf.helpers.data.Unique2DFloats attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DIntegers.ids">(gustaf.helpers.data.Unique2DIntegers attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.utils.html#gustaf.utils.log.info">info() (in module gustaf.utils.log)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.insert_knots">insert_knots() (gustaf.spline.ffd.FFD method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.show.interpolate_vedo_dictcam">interpolate_vedo_dictcam() (in module gustaf.show)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DFloats.intersection">intersection (gustaf.helpers.data.Unique2DFloats attribute)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.raise_if.invalid_inherited_attr">invalid_inherited_attr() (in module gustaf.helpers.raise_if)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DFloats.inverse">inverse (gustaf.helpers.data.Unique2DFloats attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DIntegers.inverse">(gustaf.helpers.data.Unique2DIntegers attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D">InverseCrossTile3D (class in gustaf.spline.microstructure.tiles.inversecrosstile3d)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.is_one_of_shapes">is_one_of_shapes() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.is_shape">is_shape() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.is_spline">is_spline (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.is_spline">is_spline() (in module gustaf.spline.ffd)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.items">items() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.items">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option.key">key (gustaf.helpers.options.Option attribute)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.keys">keys() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.keys">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges.kind">kind (gustaf.edges.Edges attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.kind">(gustaf.faces.Faces attribute)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.kind">(gustaf.vertices.Vertices attribute)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.kind">(gustaf.volumes.Volumes attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.line">line() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.io.html#gustaf.io.default.load">load() (in module gustaf.io.default)</a>
+
+        <ul>
+          <li><a href="gustaf.io.html#gustaf.io.meshio.load">(in module gustaf.io.meshio)</a>
+</li>
+          <li><a href="gustaf.io.html#gustaf.io.mfem.load">(in module gustaf.io.mfem)</a>
+</li>
+          <li><a href="gustaf.io.html#gustaf.io.mixd.load">(in module gustaf.io.mixd)</a>
+</li>
+          <li><a href="gustaf.io.html#gustaf.io.nutils.load">(in module gustaf.io.nutils)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.load_splines">load_splines() (in module gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor.locations">locations (gustaf.helpers.data.SplineDataAdaptor attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.make_c_contiguous">make_c_contiguous() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.make_hexa_volumes">make_hexa_volumes() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.io.html#gustaf.io.mixd.make_mrng">make_mrng() (in module gustaf.io.mixd)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.make_quad_faces">make_quad_faces() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.show.make_showable">make_showable() (in module gustaf.show)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.visualize.make_showable">(in module gustaf.spline.visualize)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.make_tracked_array">make_tracked_array() (in module gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.make_valid_options">make_valid_options() (in module gustaf.helpers.options)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.merge_vertices">merge_vertices() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.mesh">mesh (gustaf.spline.ffd.FFD property)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure">Microstructure (class in gustaf.spline.microstructure.microstructure)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.microtile">microtile (gustaf.spline.microstructure.microstructure.Microstructure property)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="gustaf.create.html#module-gustaf.create.edges">gustaf.create.edges</a>
+</li>
+          <li><a href="gustaf.create.html#module-gustaf.create.faces">gustaf.create.faces</a>
+</li>
+          <li><a href="gustaf.create.html#module-gustaf.create.vertices">gustaf.create.vertices</a>
+</li>
+          <li><a href="gustaf.create.html#module-gustaf.create.volumes">gustaf.create.volumes</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.edges">gustaf.edges</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.faces">gustaf.faces</a>
+</li>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.data">gustaf.helpers.data</a>
+</li>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.options">gustaf.helpers.options</a>
+</li>
+          <li><a href="gustaf.helpers.html#module-gustaf.helpers.raise_if">gustaf.helpers.raise_if</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.default">gustaf.io.default</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.ioutils">gustaf.io.ioutils</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.meshio">gustaf.io.meshio</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.mfem">gustaf.io.mfem</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.mixd">gustaf.io.mixd</a>
+</li>
+          <li><a href="gustaf.io.html#module-gustaf.io.nutils">gustaf.io.nutils</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.meshmaker">gustaf.meshmaker</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.segment">gustaf.segment</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.settings">gustaf.settings</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.show">gustaf.show</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.base">gustaf.spline.base</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.create">gustaf.spline.create</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.extract">gustaf.spline.extract</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.ffd">gustaf.spline.ffd</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.html#module-gustaf.spline.microstructure.microstructure">gustaf.spline.microstructure.microstructure</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile2d">gustaf.spline.microstructure.tiles.crosstile2d</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile3d">gustaf.spline.microstructure.tiles.crosstile3d</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.inversecrosstile3d">gustaf.spline.microstructure.tiles.inversecrosstile3d</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.tilebase">gustaf.spline.microstructure.tiles.tilebase</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.proximity">gustaf.spline.proximity</a>
+</li>
+          <li><a href="gustaf.spline.html#module-gustaf.spline.visualize">gustaf.spline.visualize</a>
+</li>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.arr">gustaf.utils.arr</a>
+</li>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.connec">gustaf.utils.connec</a>
+</li>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.log">gustaf.utils.log</a>
+</li>
+          <li><a href="gustaf.utils.html#module-gustaf.utils.tictoc">gustaf.utils.tictoc</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.vertices">gustaf.vertices</a>
+</li>
+          <li><a href="gustaf.html#module-gustaf.volumes">gustaf.volumes</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.raise_if.ModuleImportRaiser">ModuleImportRaiser (class in gustaf.helpers.raise_if)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.TrackedArray.mutable">mutable (gustaf.helpers.data.TrackedArray property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.tictoc.Tic.now">now() (gustaf.utils.tictoc.Tic method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS">NURBS (class in gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.nurbs">nurbs (gustaf.spline.base.Bezier property)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.nurbs">(gustaf.spline.base.BSpline property)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS.nurbs">(gustaf.spline.base.NURBS property)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.nurbs">(gustaf.spline.base.RationalBezier property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.Option">Option (class in gustaf.helpers.options)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.parameter_space_dimension">parameter_space_dimension (gustaf.spline.microstructure.tiles.tilebase.TileBase property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.Creator.parametric_view">parametric_view() (gustaf.spline.create.Creator method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.create.parametric_view">(in module gustaf.spline.create)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.parametrization_function">parametrization_function (gustaf.spline.microstructure.microstructure.Microstructure property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.plate">plate() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.pop">pop() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.pop">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.log.prepended_log">prepended_log() (in module gustaf.utils.log)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.proximity.Proximity">Proximity (class in gustaf.spline.proximity)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.proximity">proximity (gustaf.spline.base.Bezier attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.BSpline.proximity">(gustaf.spline.base.BSpline attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.proximity">(gustaf.spline.base.GustafSpline property)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.NURBS.proximity">(gustaf.spline.base.NURBS attribute)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.proximity">(gustaf.spline.base.RationalBezier attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.pyramid">pyramid() (in module gustaf.spline.create)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.range_to_edges">range_to_edges() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.create.html#gustaf.create.vertices.raster">raster() (in module gustaf.create.vertices)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier">RationalBezier (class in gustaf.spline.base)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.Bezier.rationalbezier">rationalbezier (gustaf.spline.base.Bezier property)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.RationalBezier.rationalbezier">(gustaf.spline.base.RationalBezier property)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.reduce_degree">reduce_degree() (gustaf.spline.ffd.FFD method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.referenced_vertices">referenced_vertices() (gustaf.edges.Edges method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.remove_knots">remove_knots() (gustaf.spline.ffd.FFD method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.remove_unreferenced_vertices">remove_unreferenced_vertices() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.remove_vertices">remove_vertices() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.Creator.revolved">revolved() (gustaf.spline.create.Creator method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.create.revolved">(in module gustaf.spline.create)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.rotate">rotate() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.rotation_matrix">rotation_matrix() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.rotation_matrix_around_axis">rotation_matrix_around_axis() (in module gustaf.utils.arr)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.select_vertices">select_vertices() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.select_with_ranges">select_with_ranges() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.sequence_to_edges">sequence_to_edges() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.setter_copies">setter_copies (gustaf.vertices.Vertices property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.show">show() (gustaf.spline.base.GustafSpline method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.show">(gustaf.spline.ffd.FFD method)</a>
+</li>
+          <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.show">(gustaf.spline.microstructure.microstructure.Microstructure method)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.show">(gustaf.vertices.Vertices method)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.show.show">(in module gustaf.show)</a>
+</li>
+          <li><a href="gustaf.spline.html#gustaf.spline.base.show">(in module gustaf.spline.base)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.show_options">show_options (gustaf.spline.base.GustafSpline property)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.show_options">(gustaf.vertices.Vertices property)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.show.show_vedo">show_vedo() (in module gustaf.show)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.showable">showable() (gustaf.spline.base.GustafSpline method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.showable">(gustaf.spline.ffd.FFD method)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.showable">(gustaf.vertices.Vertices method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption">ShowOption (class in gustaf.helpers.options)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.shrink">shrink() (gustaf.edges.Edges method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.edges.Edges.single_edges">single_edges() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.single_faces">single_faces() (gustaf.faces.Faces method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.sorted_edges">sorted_edges() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.sorted_faces">sorted_faces() (gustaf.faces.Faces method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.sorted_unique">sorted_unique() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.sorted_volumes">sorted_volumes() (gustaf.volumes.Volumes method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.sphere">sphere() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.ffd.FFD.spline">spline (gustaf.spline.ffd.FFD property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.spline">spline() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.spline">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.spline.html#gustaf.spline.base.GustafSpline.spline_data">spline_data (gustaf.spline.base.GustafSpline property)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineData">SplineData (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.SplineDataAdaptor">SplineDataAdaptor (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.visualize.SplineShowOption">SplineShowOption (class in gustaf.spline.visualize)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.subdivide_edges">subdivide_edges() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.subdivide_quad">subdivide_quad() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.subdivide_tri">subdivide_tri() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.tictoc.Tic.summary">summary() (gustaf.utils.tictoc.Tic method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.tet_to_tri">tet_to_tri() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.tictoc.Tic">Tic (class in gustaf.utils.tictoc)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase">TileBase (class in gustaf.spline.microstructure.tiles.tilebase)</a>
+</li>
+        <li><a href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.tiling">tiling (gustaf.spline.microstructure.microstructure.Microstructure property)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.to_edges">to_edges() (gustaf.faces.Faces method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.to_faces">to_faces() (gustaf.volumes.Volumes method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.io.html#gustaf.io.nutils.to_nutils_simplex">to_nutils_simplex() (in module gustaf.io.nutils)</a>
+</li>
+        <li><a href="gustaf.create.html#gustaf.create.faces.to_simplex">to_simplex() (in module gustaf.create.faces)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.to_vertices">to_vertices() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.tictoc.Tic.toc">toc() (gustaf.utils.tictoc.Tic method)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.create.torus">torus() (in module gustaf.spline.create)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.TrackedArray">TrackedArray (class in gustaf.helpers.data)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DFloats">Unique2DFloats (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DIntegers">Unique2DIntegers (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.unique_edges">unique_edges() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.unique_faces">unique_faces() (gustaf.faces.Faces method)</a>
+</li>
+        <li><a href="gustaf.utils.html#gustaf.utils.arr.unique_rows">unique_rows() (in module gustaf.utils.arr)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.unique_vertices">unique_vertices() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.unique_volumes">unique_volumes() (gustaf.volumes.Volumes method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.update">update() (gustaf.helpers.options.ShowOption method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.update_edges">update_edges() (gustaf.edges.Edges method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.update_edges">(gustaf.faces.Faces method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.update_elements">update_elements() (gustaf.edges.Edges method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.faces.Faces.update_faces">update_faces() (gustaf.faces.Faces method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.update_faces">(gustaf.volumes.Volumes method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.update_vertices">update_vertices() (gustaf.vertices.Vertices method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.update_volumes">update_volumes() (gustaf.volumes.Volumes method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.valid_keys">valid_keys() (gustaf.helpers.options.ShowOption method)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DFloats.values">values (gustaf.helpers.data.Unique2DFloats attribute)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.data.Unique2DIntegers.values">(gustaf.helpers.data.Unique2DIntegers attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.DataHolder.values">values() (gustaf.helpers.data.DataHolder method)</a>
+
+        <ul>
+          <li><a href="gustaf.helpers.html#gustaf.helpers.options.ShowOption.values">(gustaf.helpers.options.ShowOption method)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.vertex_data">vertex_data (gustaf.vertices.Vertices property)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.VertexData">VertexData (class in gustaf.helpers.data)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices">Vertices (class in gustaf.vertices)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.vertices">vertices (gustaf.vertices.Vertices property)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.vertices.VerticesShowOption">VerticesShowOption (class in gustaf.vertices)</a>
+</li>
+        <li><a href="gustaf.helpers.html#gustaf.helpers.data.TrackedArray.view">view() (gustaf.helpers.data.TrackedArray method)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.vertices.Vertices.vis_dict">vis_dict (gustaf.vertices.Vertices property)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes">Volumes (class in gustaf.volumes)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.Volumes.volumes">volumes (gustaf.volumes.Volumes property)</a>
+</li>
+        <li><a href="gustaf.spline.html#gustaf.spline.extract.Extractor.volumes">volumes() (gustaf.spline.extract.Extractor method)</a>
+
+        <ul>
+          <li><a href="gustaf.spline.html#gustaf.spline.extract.volumes">(in module gustaf.spline.extract)</a>
+</li>
+        </ul></li>
+        <li><a href="gustaf.utils.html#gustaf.utils.connec.volumes_to_faces">volumes_to_faces() (in module gustaf.utils.connec)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.volumes.VolumesShowOption">VolumesShowOption (class in gustaf.volumes)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.utils.html#gustaf.utils.log.warning">warning() (in module gustaf.utils.log)</a>
+</li>
+        <li><a href="gustaf.html#gustaf.edges.Edges.whatami">whatami (gustaf.edges.Edges property)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.faces.Faces.whatami">(gustaf.faces.Faces property)</a>
+</li>
+          <li><a href="gustaf.html#gustaf.vertices.Vertices.whatami">(gustaf.vertices.Vertices property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="gustaf.html#gustaf.faces.Faces.whatareyou">whatareyou() (gustaf.faces.Faces class method)</a>
+
+        <ul>
+          <li><a href="gustaf.html#gustaf.volumes.Volumes.whatareyou">(gustaf.volumes.Volumes class method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

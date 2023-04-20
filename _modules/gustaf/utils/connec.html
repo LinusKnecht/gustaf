@@ -1,0 +1,847 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.utils.connec - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules.html">API references</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../gustaf.html">gustaf</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.spline.html">gustaf.spline</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for gustaf.utils.connec</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;gustaf/gustaf/utils/connec.py.</span>
+
+<span class="sd">Useful functions for connectivity operation. Ranging from edges to</span>
+<span class="sd">volumes. Named connec because connectivity is too long. Would have been</span>
+<span class="sd">even cooler, if it was palindrome.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">gustaf</span> <span class="kn">import</span> <span class="n">helpers</span><span class="p">,</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">gustaf.utils</span> <span class="kn">import</span> <span class="n">arr</span>
+
+
+<div class="viewcode-block" id="tet_to_tri"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.tet_to_tri">[docs]</a><span class="k">def</span> <span class="nf">tet_to_tri</span><span class="p">(</span><span class="n">volumes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes tri faces based on following index scheme.</span>
+
+<span class="sd">    ``Tetrahedron``</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">        Ref: (node_ind), face_ind</span>
+
+<span class="sd">                      (0)</span>
+<span class="sd">                     _/|</span>
+<span class="sd">                   _/ 1|</span>
+<span class="sd">            (1)  _/____| (3)</span>
+<span class="sd">               _/|    /|</span>
+<span class="sd">             _/ 0| 2/ 3|</span>
+<span class="sd">            /____|/____|</span>
+<span class="sd">          (0)   (2)    (0)</span>
+
+<span class="sd">        face_ind | node_ind</span>
+<span class="sd">        ---------|----------</span>
+<span class="sd">        0        | 0 2 1</span>
+<span class="sd">        1        | 1 3 0</span>
+<span class="sd">        2        | 2 3 1</span>
+<span class="sd">        3        | 3 2 0</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    volumes: (n, 4) np.ndarray</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    faces: (n * 4, 3) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">volumes</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">make_c_contiguous</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">INT_DTYPE</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">volumes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Given volumes are not `tet` volumes&quot;</span><span class="p">)</span>
+
+    <span class="n">fpe</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># faces per element</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(((</span><span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">fpe</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">)</span>  <span class="c1"># -1 for safety check</span>
+
+    <span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">faces</span><span class="p">[::</span><span class="n">fpe</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="n">fpe</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="n">fpe</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="n">fpe</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">faces</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong while computing faces&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">faces</span></div>
+
+
+<div class="viewcode-block" id="hexa_to_quad"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.hexa_to_quad">[docs]</a><span class="k">def</span> <span class="nf">hexa_to_quad</span><span class="p">(</span><span class="n">volumes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes quad faces based on following index scheme.</span>
+
+<span class="sd">    ``Hexahedron``</span>
+
+<span class="sd">    .. code-block::</span>
+
+
+<span class="sd">                (6)    (7)</span>
+<span class="sd">                *------*</span>
+<span class="sd">                |      |</span>
+<span class="sd">         (6) (2)| 3    |(3)   (7)    (6)</span>
+<span class="sd">         *------*------*------*------*</span>
+<span class="sd">         |      |      |      |      |</span>
+<span class="sd">         | 2    | 0    | 4    | 5    |</span>
+<span class="sd">         *------*------*------*------*</span>
+<span class="sd">         (5) (1)|      |(0)   (4)    (5)</span>
+<span class="sd">                | 1    |</span>
+<span class="sd">                *------*</span>
+<span class="sd">                (5)    (4)</span>
+
+<span class="sd">        face_ind | node_ind</span>
+<span class="sd">        ---------|----------</span>
+<span class="sd">        0        | 1 0 3 2</span>
+<span class="sd">        1        | 0 1 5 4</span>
+<span class="sd">        2        | 1 2 6 5</span>
+<span class="sd">        3        | 2 3 7 6</span>
+<span class="sd">        4        | 3 0 4 7</span>
+<span class="sd">        5        | 4 5 6 7</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    volumes: (n, 8) np.ndarray</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    faces: (n * 8, 4) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">volumes</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">make_c_contiguous</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">INT_DTYPE</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">volumes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Given volumes are not `hexa` volumes&quot;</span><span class="p">)</span>
+
+    <span class="n">fpe</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># faces per element</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(((</span><span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">fpe</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">)</span>  <span class="c1"># -1 for safety check</span>
+
+    <span class="n">faces</span><span class="p">[::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">4</span><span class="p">::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+    <span class="n">faces</span><span class="p">[</span><span class="mi">5</span><span class="p">::</span><span class="n">fpe</span><span class="p">]</span> <span class="o">=</span> <span class="n">volumes</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">faces</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong while computing faces&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">faces</span></div>
+
+
+<div class="viewcode-block" id="volumes_to_faces"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.volumes_to_faces">[docs]</a><span class="k">def</span> <span class="nf">volumes_to_faces</span><span class="p">(</span><span class="n">volumes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Guidance function for `tet_to_tri` and `hexa_to_quad`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    volumes: (n, 4) or (m, 8) np.ndarray</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    faces: (n*4, 3) or (m*6, 4) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">volumes</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">make_c_contiguous</span><span class="p">(</span><span class="n">volumes</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">INT_DTYPE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tet_to_tri</span><span class="p">(</span><span class="n">volumes</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">volumes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">hexa_to_quad</span><span class="p">(</span><span class="n">volumes</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="faces_to_edges"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.faces_to_edges">[docs]</a><span class="k">def</span> <span class="nf">faces_to_edges</span><span class="p">(</span><span class="n">faces</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute edges based on following edge scheme.</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">        Ref: (node_ind), edge_ind</span>
+
+<span class="sd">            (0)</span>
+<span class="sd">             /\\</span>
+<span class="sd">          0 /  \\2</span>
+<span class="sd">           /____\\</span>
+<span class="sd">        (1)  1   (2)</span>
+
+<span class="sd">              2</span>
+<span class="sd">        (3)*-----*(2)</span>
+<span class="sd">           |     |</span>
+<span class="sd">         3 |     | 1</span>
+<span class="sd">        (0)*-----*(1)</span>
+<span class="sd">              0</span>
+
+<span class="sd">    Note: if `edges` index matter for tets, reorder it!</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    faces: (n, 3) or (n, 4) np.ndarray</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    edges: (n * 3, 2) or (n * 4, 2) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">faces</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Given input has wrong dimension. &quot;</span>
+            <span class="s2">&quot;The input array for a faces has to be dim of 2&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">num_faces</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">vertices_per_face</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">num_edges</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_faces</span> <span class="o">*</span> <span class="n">vertices_per_face</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">num_edges</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># -1 for safety</span>
+    <span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">faces</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vertices_per_face</span><span class="p">):</span>
+        <span class="c1"># v_ind : corresponding vertex index for i value</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">vertices_per_face</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">v_ind</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">v_ind</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">::</span><span class="n">vertices_per_face</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">faces</span><span class="p">[:,</span> <span class="n">v_ind</span><span class="p">]</span>
+
+    <span class="c1"># Quick sanity check - No entries are left untouched.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">edges</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;There was an error while computing edges.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">edges</span></div>
+
+
+<div class="viewcode-block" id="range_to_edges"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.range_to_edges">[docs]</a><span class="k">def</span> <span class="nf">range_to_edges</span><span class="p">(</span><span class="n">range_</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given range, for example (a, b), returns an edge sequence that</span>
+<span class="sd">    sequentially connects indices. If int is given as range, it is considered</span>
+<span class="sd">    as (0, value). Used to be called &quot;closed/open_loop_index_train&quot;.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    range_: list, tuple, or int</span>
+<span class="sd">    closed: bool</span>
+<span class="sd">    continuous: bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    edges: (n, 2) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">range_</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">range_</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">range_</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">range_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input range is too long&quot;</span><span class="p">)</span>
+
+        <span class="c1"># keep the arange syntax. If this isn&#39;t wanted,</span>
+        <span class="c1"># change to (ran[0], ran[1]+1)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">*</span><span class="n">range_</span><span class="p">)</span>
+
+    <span class="c1"># closed is ignored</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">continuous</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ranges should result in even number of indices.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">indices</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># continuous edges</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">closed</span><span class="p">:</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">indices</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sequence_to_edges"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.sequence_to_edges">[docs]</a><span class="k">def</span> <span class="nf">sequence_to_edges</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a sequence of int, &quot;connect&quot; to turn them into edges.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    seq: (n,) array-like</span>
+<span class="sd">    closed: bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    edges: (m, 2) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">edges</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">closed</span><span class="p">:</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">edges</span><span class="p">,</span> <span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">edges</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]))</span>
+
+    <span class="k">return</span> <span class="n">edges</span></div>
+
+
+<div class="viewcode-block" id="make_quad_faces"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.make_quad_faces">[docs]</a><span class="k">def</span> <span class="nf">make_quad_faces</span><span class="p">(</span><span class="n">resolutions</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given number of nodes per each dimension, returns connectivity</span>
+<span class="sd">    information of a structured mesh. Counter clock wise connectivity.</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">        (3)*------*(2)</span>
+<span class="sd">           |      |</span>
+<span class="sd">           |      |</span>
+<span class="sd">        (0)*------*(1)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    resolutions: list</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    faces: (n, 4) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nnpd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">resolutions</span><span class="p">)</span>  <span class="c1"># number of nodes per dimension</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">nnpd</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The number of nodes per dimension is wrong: </span><span class="si">{</span><span class="n">nnpd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">total_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">nnpd</span><span class="p">)</span>
+    <span class="n">total_faces</span> <span class="o">=</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Problem with generating node indices. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">total_faces</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="n">faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">faces</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">faces</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong during `make_quad_faces`.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">faces</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="make_hexa_volumes"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.make_hexa_volumes">[docs]</a><span class="k">def</span> <span class="nf">make_hexa_volumes</span><span class="p">(</span><span class="n">resolutions</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given number of nodes per each dimension, returns connectivity</span>
+<span class="sd">    information of structured hexahedron elements. Counter clock wise</span>
+<span class="sd">    connectivity.</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">         (7)*-------*(6)</span>
+<span class="sd">           /|      /|</span>
+<span class="sd">          / | (5) / |</span>
+<span class="sd">      (4)*-------*  |</span>
+<span class="sd">         |  *----|--*(2)</span>
+<span class="sd">         | /(3)  | /</span>
+<span class="sd">         |/      |/</span>
+<span class="sd">      (0)*-------*(1)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    resolutions: list</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    elements: (n, 8) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nnpd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">resolutions</span><span class="p">)</span>  <span class="c1"># number of nodes per dimension</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">nnpd</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The number of nodes per dimension is wrong: </span><span class="si">{</span><span class="n">nnpd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">total_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">nnpd</span><span class="p">)</span>
+    <span class="n">total_volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">nnpd</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">node_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_nodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nnpd</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">volumes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">total_volumes</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">volumes</span><span class="p">[:,</span> <span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_indices</span><span class="p">[</span>
+        <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">nnpd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:</span> <span class="p">(</span><span class="n">nnpd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">volumes</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Something went wrong during `make_hexa_volumes`.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">volumes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">INT_DTYPE</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="subdivide_edges"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.subdivide_edges">[docs]</a><span class="k">def</span> <span class="nf">subdivide_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subdivide edges. We assume that mid point is newly added points.</span>
+
+<span class="sd">    ``Subdivided Edges``</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">        Edges (Lines)</span>
+
+<span class="sd">        Ref: (node_ids), edge_ids</span>
+
+<span class="sd">        (0)      (2)      (1)</span>
+<span class="sd">         *--------*--------*</span>
+
+<span class="sd">        edge_ids | node_ids</span>
+<span class="sd">        ---------|----------</span>
+<span class="sd">        0        | 0 2</span>
+<span class="sd">        1        | 2 1</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    edges: (n, 2) np.ndarray</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    subdivided_edges: (n * 2, 2) np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">edges</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">edges</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid edges shape!&quot;</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+<div class="viewcode-block" id="subdivide_tri"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.subdivide_tri">[docs]</a><span class="k">def</span> <span class="nf">subdivide_tri</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="p">,</span>
+    <span class="n">return_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subdivide triangles. Each triangle is divided into 4 meshes.</span>
+
+<span class="sd">    ``Subdivided Faces``</span>
+
+<span class="sd">    .. code-block::</span>
+
+<span class="sd">        Triangles</span>
+
+<span class="sd">        Ref: (node_ind), face_ind</span>
+
+<span class="sd">                 (0)</span>
+<span class="sd">                     _/|</span>
+<span class="sd">                   _/ 0|</span>
+<span class="sd">            (3)  _/____|(5)</span>
+<span class="sd">               _/|    /|</span>
+<span class="sd">             _/ 1| 3/ 2|</span>
+<span class="sd">            /____|/____|</span>
+<span class="sd">          (1)   (4)    (2)</span>
+
+<span class="sd">        face_ind | node_ind</span>
+<span class="sd">        ---------|----------</span>
+<span class="sd">        0        | 0 3 5</span>
+<span class="sd">        1        | 1 4 3</span>
+<span class="sd">        2        | 2 5 4</span>
+<span class="sd">        3        | 3 4 5</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    mesh: Mesh</span>
+<span class="sd">    return_dict: bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    new_vertices: (n, d) np.ndarray</span>
+<span class="sd">    subdivided_faces: (m, 3) np.ndarray</span>
+<span class="sd">    mesh_dict: dict</span>
+<span class="sd">      iff `return_dict=True`,</span>
+<span class="sd">      returns dict(vertices=new_vertices, faces=subdivided_faces).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># This will only pass if the mesh is triangle mesh.</span>
+    <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid faces shape!&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Form new vertices</span>
+    <span class="n">edge_mid_v</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">unique_edges</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">new_vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">edge_mid_v</span><span class="p">))</span>
+
+    <span class="n">subdivided_faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">subdivided_faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">mask</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># 0th column minus (every 4th row, starting from 3rd row)</span>
+    <span class="n">subdivided_faces</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># copies</span>
+
+    <span class="c1"># Form ids for new vertices</span>
+    <span class="n">new_vertices_ids</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">unique_edges</span><span class="p">()</span><span class="o">.</span><span class="n">inverse</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># 1st &amp; 2nd columns</span>
+    <span class="n">subdivided_faces</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_vertices_ids</span>
+    <span class="n">subdivided_faces</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_vertices_ids</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)[</span>
+        <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="c1"># Every 4th row, starting from 3rd row</span>
+    <span class="n">subdivided_faces</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">new_vertices_ids</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">vertices</span><span class="o">=</span><span class="n">new_vertices</span><span class="p">,</span>
+            <span class="n">faces</span><span class="o">=</span><span class="n">subdivided_faces</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">new_vertices</span><span class="p">,</span> <span class="n">subdivided_faces</span></div>
+
+
+<div class="viewcode-block" id="subdivide_quad"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.subdivide_quad">[docs]</a><span class="k">def</span> <span class="nf">subdivide_quad</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="p">,</span>
+    <span class="n">return_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subdivide quads.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    mesh: Mesh</span>
+<span class="sd">    return_dict: bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    new_vertices: (n, d) np.ndarray</span>
+<span class="sd">    subdivided_faces: (m, 4) np.ndarray</span>
+<span class="sd">    mesh_dict: dict</span>
+<span class="sd">      iff `return_dict=True`,</span>
+<span class="sd">      returns dict(vertices=new_vertices, faces=subdivided_faces).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># This will only pass if the mesh is quad mesh.</span>
+    <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid faces shape!&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Form new vertices</span>
+    <span class="n">edge_mid_v</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">unique_edges</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">face_centers</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">centers</span><span class="p">()</span>
+    <span class="n">new_vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span>
+            <span class="n">edge_mid_v</span><span class="p">,</span>
+            <span class="n">face_centers</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">subdivided_faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">subdivided_faces</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">subdivided_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">unique_edges</span><span class="p">()</span><span class="o">.</span><span class="n">inverse</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+    <span class="n">subdivided_faces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">face_centers</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">edge_mid_v</span><span class="p">)),</span>
+        <span class="mi">4</span><span class="p">,</span>
+        <span class="c1"># dtype=np.int32,</span>
+    <span class="p">)</span>
+    <span class="n">subdivided_faces</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">subdivided_faces</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">vertices</span><span class="o">=</span><span class="n">new_vertices</span><span class="p">,</span>
+            <span class="n">faces</span><span class="o">=</span><span class="n">subdivided_faces</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">new_vertices</span><span class="p">,</span> <span class="n">subdivided_faces</span></div>
+
+
+<div class="viewcode-block" id="sorted_unique"><a class="viewcode-back" href="../../../gustaf.utils.html#gustaf.utils.connec.sorted_unique">[docs]</a><span class="k">def</span> <span class="nf">sorted_unique</span><span class="p">(</span><span class="n">connectivity</span><span class="p">,</span> <span class="n">sorted_</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given connectivity array, finds unique entries, based on its axis=1</span>
+<span class="sd">    sorted values. Returned value will be sorted.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    connectivity: (n, d) np.ndarray</span>
+<span class="sd">    sorted_: bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    unique_info: Unique2DIntegers</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s_connec</span> <span class="o">=</span> <span class="n">connectivity</span> <span class="k">if</span> <span class="n">sorted_</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">connectivity</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">unique_stuff</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">unique_rows</span><span class="p">(</span>
+        <span class="n">s_connec</span><span class="p">,</span>
+        <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">dtype_name</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">INT_DTYPE</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">helpers</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Unique2DIntegers</span><span class="p">(</span>
+        <span class="n">unique_stuff</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># values</span>
+        <span class="n">unique_stuff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># ids</span>
+        <span class="n">unique_stuff</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># inverse</span>
+        <span class="n">unique_stuff</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="c1"># counts</span>
+    <span class="p">)</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    </body>
+</html>

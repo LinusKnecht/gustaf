@@ -1,0 +1,45 @@
+
+gustaf.create
+=============
+
+
+.. toctree::
+   :maxdepth: 4
+
+
+
+
+gustaf.create.edges
+-------------------
+
+.. automodule:: gustaf.create.edges
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.create.faces
+-------------------
+
+.. automodule:: gustaf.create.faces
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.create.vertices
+----------------------
+
+.. automodule:: gustaf.create.vertices
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.create.volumes
+---------------------
+
+.. automodule:: gustaf.create.volumes
+   :members:
+   :undoc-members:
+   :show-inheritance:

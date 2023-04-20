@@ -1,0 +1,45 @@
+
+gustaf.utils
+============
+
+
+.. toctree::
+   :maxdepth: 4
+
+
+
+
+gustaf.utils.arr
+----------------
+
+.. automodule:: gustaf.utils.arr
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.utils.connec
+-------------------
+
+.. automodule:: gustaf.utils.connec
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.utils.log
+----------------
+
+.. automodule:: gustaf.utils.log
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.utils.tictoc
+-------------------
+
+.. automodule:: gustaf.utils.tictoc
+   :members:
+   :undoc-members:
+   :show-inheritance:

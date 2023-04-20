@@ -1,0 +1,1163 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="gustaf.io" href="gustaf.io.html" /><link rel="prev" title="gustaf.create" href="gustaf.create.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.helpers - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API references</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="gustaf.html">gustaf</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">gustaf.helpers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.spline.html">gustaf.spline</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="gustaf-helpers">
+<h1>gustaf.helpers<a class="headerlink" href="#gustaf-helpers" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-gustaf.helpers.data">
+<span id="gustaf-helpers-data"></span><h2>gustaf.helpers.data<a class="headerlink" href="#module-gustaf.helpers.data" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/helpers/data.py.</p>
+<p>Helps helpee to manage data. Some useful data structures.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.ComputedData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">ComputedData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#ComputedData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.ComputedData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.helpers.data.DataHolder" title="gustaf.helpers.data.DataHolder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataHolder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.ComputedData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#ComputedData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.ComputedData.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Stores last computed values.</p>
+<dl class="simple">
+<dt>Keys are expected to be the same as helpee’s function that computes the</dt><dd><p>value.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>helpee</strong> (<em>GustafBase</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.ComputedData.depends_on">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depends_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_property</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#ComputedData.depends_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.ComputedData.depends_on" title="Permalink to this definition">#</a></dt>
+<dd><p>Decorator as classmethod.</p>
+<p>checks if the key should be computed. Two cases, where the answer is
+yes:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>there’s modification on arrays that the key depend on.</dt><dd><p>-&gt;erases all other</p>
+</dd>
+</dl>
+</li>
+<li><p>is corresponding value None?</p></li>
+</ol>
+<p>Supports multi-dependency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var_name</strong> (<em>list</em>) – </p></li>
+<li><p><strong>make_property</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.ComputedMeshData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">ComputedMeshData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#ComputedMeshData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.ComputedMeshData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.helpers.data.ComputedData" title="gustaf.helpers.data.ComputedData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComputedData</span></code></a></p>
+<p>A class to hold computed-mesh-data.</p>
+<p>Subclassed to keep its own dependency info.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">DataHolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GustafBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Base class for any data holder. Behaves similar to dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>helpee</strong> (<em>object</em>) – GustafBase objects would probably make the most sense here.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.clear" title="Permalink to this definition">#</a></dt>
+<dd><p>Clears saved data by reassigning new dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.get" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns stored item if the key exists. Else, given default value. If
+the key exist, default value always exists, since it is initialized
+that way.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>default_values</strong> (<em>object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.items" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns items of data holding dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict_values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.keys" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns keys of data holding dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keys</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict_keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.pop" title="Permalink to this definition">#</a></dt>
+<dd><p>Applied pop() to saved data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>default</strong> (<em>object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.DataHolder.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#DataHolder.values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.DataHolder.values" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns values of data holding dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict_values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">SplineData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.helpers.data.DataHolder" title="gustaf.helpers.data.DataHolder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataHolder</span></code></a></p>
+<p>Data manager for splines.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineData.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineData.as_arrow">
+<span class="sig-name descname"><span class="pre">as_arrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineData.as_arrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineData.as_arrow" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns as-arrow-representable data on certain places, with given
+resolution, or on predefined places.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>resolutions</strong> (<em>list</em><em> or </em><em>tuple</em>) – </p></li>
+<li><p><strong>on</strong> (<em>array-like</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineData.as_scalar">
+<span class="sig-name descname"><span class="pre">as_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineData.as_scalar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineData.as_scalar" title="Permalink to this definition">#</a></dt>
+<dd><p>Return scalar value at given resolutions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>resolutions</strong> (<em>list</em><em> or </em><em>tuple</em>) – </p></li>
+<li><p><strong>default</strong> (<em>object</em>) – Default is None and will return is key doesn’t exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">SplineDataAdaptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineDataAdaptor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GustafBase</span></code></p>
+<p>Prepares data to be presentable on spline. To support both
+scalar-data and vector-data, which are representable with colors and
+arrows respectively, this class will prepare data accordingly.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineDataAdaptor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.arrow_data_only">
+<span class="sig-name descname"><span class="pre">arrow_data_only</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.arrow_data_only" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.as_vertex_data">
+<span class="sig-name descname"><span class="pre">as_vertex_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#SplineDataAdaptor.as_vertex_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.as_vertex_data" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resolutions</strong> (<em>list</em><em> or </em><em>tuple</em>) – </p></li>
+<li><p><strong>at</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>array-like</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>vertex_data</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(m, r) array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.data" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.function">
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.function" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.has_evaluate">
+<span class="sig-name descname"><span class="pre">has_evaluate</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.has_evaluate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.has_function">
+<span class="sig-name descname"><span class="pre">has_function</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.has_function" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.has_locations">
+<span class="sig-name descname"><span class="pre">has_locations</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.has_locations" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.is_spline">
+<span class="sig-name descname"><span class="pre">is_spline</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.is_spline" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.SplineDataAdaptor.locations">
+<span class="sig-name descname"><span class="pre">locations</span></span><a class="headerlink" href="#gustaf.helpers.data.SplineDataAdaptor.locations" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.TrackedArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">TrackedArray</span></span><a class="reference internal" href="_modules/gustaf/helpers/data.html#TrackedArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.TrackedArray" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+<p>Taken from nice implementations of <cite>trimesh</cite> (see LICENSE.txt).
+<cite>https://github.com/mikedh/trimesh/blob/main/trimesh/caching.py</cite>. Minor
+adaption, since we don’t have hashing functionalities.</p>
+<p>All the inplace functions will set modified flag and if some operations
+has potential to cause un-trackable behavior, writeable flags will be set
+to False.</p>
+<p>Note, if you really really want, it is possible to change the tracked
+array without setting modified flag.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.TrackedArray.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#TrackedArray.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.TrackedArray.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>copy gives np.ndarray.</p>
+<p>no more tracking.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.helpers.data.TrackedArray.mutable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mutable</span></span><a class="headerlink" href="#gustaf.helpers.data.TrackedArray.mutable" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.TrackedArray.view">
+<span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#TrackedArray.view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.TrackedArray.view" title="Permalink to this definition">#</a></dt>
+<dd><p>Set writeable flags to False for the view.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DFloats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">Unique2DFloats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intersection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gustaf.helpers.data.Unique2DFloats" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>namedtuple to hold unique information of float type arrays.
+Note that for float types, “close enough” might be a better name than unique.
+This way, all tracked arrays, as long as they are 2D, have a dot separated
+syntax to access unique info. For example, <cite>mesh.unique_vertices.ids</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DFloats.ids">
+<span class="sig-name descname"><span class="pre">ids</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DFloats.ids" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n, d) np.ndarray</cite>
+Field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DFloats.intersection">
+<span class="sig-name descname"><span class="pre">intersection</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DFloats.intersection" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(m) list of list</cite>
+given original array’s index, returns overlapping arrays, including itself.
+Field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DFloats.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DFloats.inverse" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n, d) np.ndarray</cite>
+Field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DFloats.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DFloats.values" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n, d) np.ndarray</cite>
+Field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DIntegers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">Unique2DIntegers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gustaf.helpers.data.Unique2DIntegers" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>namedtuple to hold unique information of integer type arrays.
+Similar approach to Unique2DFloats.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DIntegers.counts">
+<span class="sig-name descname"><span class="pre">counts</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DIntegers.counts" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n) np.ndarray</cite>
+Field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DIntegers.ids">
+<span class="sig-name descname"><span class="pre">ids</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DIntegers.ids" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n) np.ndarray</cite>
+Field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DIntegers.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DIntegers.inverse" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(m) np.ndarray</cite>
+Field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.data.Unique2DIntegers.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#gustaf.helpers.data.Unique2DIntegers.values" title="Permalink to this definition">#</a></dt>
+<dd><p><cite>(n, d) np.ndarray</cite>
+Field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.data.VertexData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">VertexData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#VertexData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.VertexData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.helpers.data.DataHolder" title="gustaf.helpers.data.DataHolder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataHolder</span></code></a></p>
+<p>Minimal manager for vertex data. Checks input array size, transforms
+data on request. __setitem__ and __getitem__ will perform length checks.
+key(), values(), items(), and get() will return whatever is currently
+stored.</p>
+<p>gustaf supports two kinds of data representation: scalar-data with cmap
+and vector-data with arrows.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.VertexData.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#VertexData.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.VertexData.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks if helpee has vertices as attr beforehand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>helpee</strong> (<a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><em>Vertices</em></a>) – Vertices and its derived classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.VertexData.as_arrow">
+<span class="sig-name descname"><span class="pre">as_arrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#VertexData.as_arrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.VertexData.as_arrow" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an array as is, only if it is showable as arrow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>default</strong> (<em>object</em>) – </p></li>
+<li><p><strong>raise</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(n, d) np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.data.VertexData.as_scalar">
+<span class="sig-name descname"><span class="pre">as_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#VertexData.as_scalar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.VertexData.as_scalar" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns scalar version of requested data. If it is already a scalar,
+will return as is. Else, will return a norm. using <cite>np.linalg.norm()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>default</strong> (<em>object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data_as_scalar</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(n, 1) np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.helpers.data.make_tracked_array">
+<span class="sig-prename descclassname"><span class="pre">gustaf.helpers.data.</span></span><span class="sig-name descname"><span class="pre">make_tracked_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/data.html#make_tracked_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.data.make_tracked_array" title="Permalink to this definition">#</a></dt>
+<dd><p>Taken from nice implementations of <cite>trimesh</cite> (see LICENSE.txt).
+<cite>https://github.com/mikedh/trimesh/blob/main/trimesh/caching.py</cite>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Properly</span> <span class="pre">subclass</span> <span class="pre">a</span> <span class="pre">numpy</span> <span class="pre">ndarray</span> <span class="pre">to</span> <span class="pre">track</span> <span class="pre">changes.</span>
+<span class="pre">Avoids</span> <span class="pre">some</span> <span class="pre">pitfalls</span> <span class="pre">of</span> <span class="pre">subclassing</span> <span class="pre">by</span> <span class="pre">forcing</span> <span class="pre">contiguous</span>
+<span class="pre">arrays</span> <span class="pre">and</span> <span class="pre">does</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">into</span> <span class="pre">a</span> <span class="pre">TrackedArray.</span></code></p>
+<p>Factory-like wrapper function for TrackedArray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>array- like object</em>) – To be turned into a TrackedArray</p></li>
+<li><p><strong>dtype</strong> (<em>np.dtype</em>) – Which dtype to use for the array</p></li>
+<li><p><strong>copy</strong> (<em>bool</em>) – Default is True. copy if True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tracked</strong> – Contains input array data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.helpers.data.TrackedArray" title="gustaf.helpers.data.TrackedArray">TrackedArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.helpers.options">
+<span id="gustaf-helpers-options"></span><h2>gustaf.helpers.options<a class="headerlink" href="#module-gustaf.helpers.options" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/helpers/options.py</p>
+<p>Classes to help organize options.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.options.</span></span><span class="sig-name descname"><span class="pre">Option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#Option"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.Option" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Minimal Class to hold each options. Mainly to replace nested dict.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#Option.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.Option.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option.allowed_types">
+<span class="sig-name descname"><span class="pre">allowed_types</span></span><a class="headerlink" href="#gustaf.helpers.options.Option.allowed_types" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option.backend">
+<span class="sig-name descname"><span class="pre">backend</span></span><a class="headerlink" href="#gustaf.helpers.options.Option.backend" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#gustaf.helpers.options.Option.description" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.helpers.options.Option.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#gustaf.helpers.options.Option.key" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.options.</span></span><span class="sig-name descname"><span class="pre">ShowOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Behaves similar to dict, but will only accept a set of options that’s
+applicable to the helpee class. Intended use is to create a
+subclass that would define valid options for helpee.
+Options should be described by Option object.
+Helps all the way up to initializing backend showables up to their backend
+specific common routines. ShowOption and ShowManager in a sense.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>helpee</strong> (<em>object</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.clear" title="Permalink to this definition">#</a></dt>
+<dd><p>Clears all the options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.copy_valid_options">
+<span class="sig-name descname"><span class="pre">copy_valid_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copy_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.copy_valid_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.copy_valid_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Copies valid option to other show_option. Simply iterates and tries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>copy_to</strong> (<a class="reference internal" href="#gustaf.helpers.options.ShowOption" title="gustaf.helpers.options.ShowOption"><em>ShowOption</em></a>) – </p></li>
+<li><p><strong>keys</strong> (<em>tuple</em><em> or </em><em>list</em>) – Can specify keys</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.get" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets value from key and default. Similar to dict.get()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>stir</em>) – </p></li>
+<li><p><strong>default</strong> (<em>object</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>values</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.items" title="Permalink to this definition">#</a></dt>
+<dd><p>Registered option items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>items</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict_items</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.keys" title="Permalink to this definition">#</a></dt>
+<dd><p>Registered option keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>keys</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict_keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.pop" title="Permalink to this definition">#</a></dt>
+<dd><p>Calls pop() on current backend options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.update" title="Permalink to this definition">#</a></dt>
+<dd><p>Calls __setitem__ iteratively for validity check.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<em>kwargs</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.valid_keys">
+<span class="sig-name descname"><span class="pre">valid_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.valid_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.valid_keys" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns valid keys. Can directly specify backend. If not, returns
+valid_keys for currently selected backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>backend</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>valid_keys</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict_keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.options.ShowOption.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#ShowOption.values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.ShowOption.values" title="Permalink to this definition">#</a></dt>
+<dd><p>Registered option values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>keys</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict_values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.helpers.options.make_valid_options">
+<span class="sig-prename descclassname"><span class="pre">gustaf.helpers.options.</span></span><span class="sig-name descname"><span class="pre">make_valid_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/options.html#make_valid_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.options.make_valid_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Forms valid options. Should run only once during module loading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*options</strong> (<a class="reference internal" href="#gustaf.helpers.options.Option" title="gustaf.helpers.options.Option"><em>Option</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>valid_options</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict()</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.helpers.raise_if">
+<span id="gustaf-helpers-raise-if"></span><h2>gustaf.helpers.raise_if<a class="headerlink" href="#module-gustaf.helpers.raise_if" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/helpers/raise_if.py.</p>
+<p>Collection of wrapper functions/classes that raises Error with certain
+behavior</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.helpers.raise_if.ModuleImportRaiser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.helpers.raise_if.</span></span><span class="sig-name descname"><span class="pre">ModuleImportRaiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/raise_if.html#ModuleImportRaiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.raise_if.ModuleImportRaiser" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mock imports optional modules if they are not installed.</p>
+<p>Class used to have better import error handling in the case that a
+package package is not installed. This is necessary due to that some
+packages are not a dependency of <cite>gustaf</cite>, but some parts require
+them to function. Examples are <cite>splinepy</cite> and <cite>vedo</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.helpers.raise_if.ModuleImportRaiser.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/raise_if.html#ModuleImportRaiser.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.raise_if.ModuleImportRaiser.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.helpers.raise_if.invalid_inherited_attr">
+<span class="sig-prename descclassname"><span class="pre">gustaf.helpers.raise_if.</span></span><span class="sig-name descname"><span class="pre">invalid_inherited_attr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/helpers/raise_if.html#invalid_inherited_attr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.helpers.raise_if.invalid_inherited_attr" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a function that would behave the same as given function, but
+would raise AttributeError. This needs to be defined in class level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>(</em><em>function</em><em>)</em>) – _description_</p></li>
+<li><p><strong>qualname</strong> (<em>(</em><em>class</em><em>)</em>) – _description_</p></li>
+<li><p><strong>property</strong> (<em>(</em><em>bool</em><em>, </em><em>optional</em><em>)</em>) – is this function a property?. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>raiser</strong> – behaves same as func if <cite>property_</cite> is correctly defined</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="gustaf.io.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">gustaf.io</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="gustaf.create.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">gustaf.create</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">gustaf.helpers</a><ul>
+<li><a class="reference internal" href="#module-gustaf.helpers.data">gustaf.helpers.data</a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.ComputedData"><code class="docutils literal notranslate"><span class="pre">ComputedData</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.ComputedData.__init__"><code class="docutils literal notranslate"><span class="pre">ComputedData.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.ComputedData.depends_on"><code class="docutils literal notranslate"><span class="pre">ComputedData.depends_on()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.ComputedMeshData"><code class="docutils literal notranslate"><span class="pre">ComputedMeshData</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder"><code class="docutils literal notranslate"><span class="pre">DataHolder</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.__init__"><code class="docutils literal notranslate"><span class="pre">DataHolder.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.clear"><code class="docutils literal notranslate"><span class="pre">DataHolder.clear()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.get"><code class="docutils literal notranslate"><span class="pre">DataHolder.get()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.items"><code class="docutils literal notranslate"><span class="pre">DataHolder.items()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.keys"><code class="docutils literal notranslate"><span class="pre">DataHolder.keys()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.pop"><code class="docutils literal notranslate"><span class="pre">DataHolder.pop()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.DataHolder.values"><code class="docutils literal notranslate"><span class="pre">DataHolder.values()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineData"><code class="docutils literal notranslate"><span class="pre">SplineData</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineData.__init__"><code class="docutils literal notranslate"><span class="pre">SplineData.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineData.as_arrow"><code class="docutils literal notranslate"><span class="pre">SplineData.as_arrow()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineData.as_scalar"><code class="docutils literal notranslate"><span class="pre">SplineData.as_scalar()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.__init__"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.arrow_data_only"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.arrow_data_only</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.as_vertex_data"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.as_vertex_data()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.data"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.data</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.function"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.function</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.has_evaluate"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.has_evaluate</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.has_function"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.has_function</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.has_locations"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.has_locations</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.is_spline"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.is_spline</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.SplineDataAdaptor.locations"><code class="docutils literal notranslate"><span class="pre">SplineDataAdaptor.locations</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.TrackedArray"><code class="docutils literal notranslate"><span class="pre">TrackedArray</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.TrackedArray.copy"><code class="docutils literal notranslate"><span class="pre">TrackedArray.copy()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.TrackedArray.mutable"><code class="docutils literal notranslate"><span class="pre">TrackedArray.mutable</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.TrackedArray.view"><code class="docutils literal notranslate"><span class="pre">TrackedArray.view()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DFloats"><code class="docutils literal notranslate"><span class="pre">Unique2DFloats</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DFloats.ids"><code class="docutils literal notranslate"><span class="pre">Unique2DFloats.ids</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DFloats.intersection"><code class="docutils literal notranslate"><span class="pre">Unique2DFloats.intersection</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DFloats.inverse"><code class="docutils literal notranslate"><span class="pre">Unique2DFloats.inverse</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DFloats.values"><code class="docutils literal notranslate"><span class="pre">Unique2DFloats.values</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DIntegers"><code class="docutils literal notranslate"><span class="pre">Unique2DIntegers</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DIntegers.counts"><code class="docutils literal notranslate"><span class="pre">Unique2DIntegers.counts</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DIntegers.ids"><code class="docutils literal notranslate"><span class="pre">Unique2DIntegers.ids</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DIntegers.inverse"><code class="docutils literal notranslate"><span class="pre">Unique2DIntegers.inverse</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.Unique2DIntegers.values"><code class="docutils literal notranslate"><span class="pre">Unique2DIntegers.values</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.VertexData"><code class="docutils literal notranslate"><span class="pre">VertexData</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.data.VertexData.__init__"><code class="docutils literal notranslate"><span class="pre">VertexData.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.VertexData.as_arrow"><code class="docutils literal notranslate"><span class="pre">VertexData.as_arrow()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.data.VertexData.as_scalar"><code class="docutils literal notranslate"><span class="pre">VertexData.as_scalar()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.data.make_tracked_array"><code class="docutils literal notranslate"><span class="pre">make_tracked_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.helpers.options">gustaf.helpers.options</a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option"><code class="docutils literal notranslate"><span class="pre">Option</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option.__init__"><code class="docutils literal notranslate"><span class="pre">Option.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option.allowed_types"><code class="docutils literal notranslate"><span class="pre">Option.allowed_types</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option.backend"><code class="docutils literal notranslate"><span class="pre">Option.backend</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option.description"><code class="docutils literal notranslate"><span class="pre">Option.description</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.Option.key"><code class="docutils literal notranslate"><span class="pre">Option.key</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption"><code class="docutils literal notranslate"><span class="pre">ShowOption</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.__init__"><code class="docutils literal notranslate"><span class="pre">ShowOption.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.clear"><code class="docutils literal notranslate"><span class="pre">ShowOption.clear()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.copy_valid_options"><code class="docutils literal notranslate"><span class="pre">ShowOption.copy_valid_options()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.get"><code class="docutils literal notranslate"><span class="pre">ShowOption.get()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.items"><code class="docutils literal notranslate"><span class="pre">ShowOption.items()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.keys"><code class="docutils literal notranslate"><span class="pre">ShowOption.keys()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.pop"><code class="docutils literal notranslate"><span class="pre">ShowOption.pop()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.update"><code class="docutils literal notranslate"><span class="pre">ShowOption.update()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.valid_keys"><code class="docutils literal notranslate"><span class="pre">ShowOption.valid_keys()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.helpers.options.ShowOption.values"><code class="docutils literal notranslate"><span class="pre">ShowOption.values()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.options.make_valid_options"><code class="docutils literal notranslate"><span class="pre">make_valid_options()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.helpers.raise_if">gustaf.helpers.raise_if</a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.raise_if.ModuleImportRaiser"><code class="docutils literal notranslate"><span class="pre">ModuleImportRaiser</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.helpers.raise_if.ModuleImportRaiser.__init__"><code class="docutils literal notranslate"><span class="pre">ModuleImportRaiser.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.helpers.raise_if.invalid_inherited_attr"><code class="docutils literal notranslate"><span class="pre">invalid_inherited_attr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

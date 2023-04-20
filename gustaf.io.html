@@ -1,0 +1,612 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="gustaf.spline" href="gustaf.spline.html" /><link rel="prev" title="gustaf.helpers" href="gustaf.helpers.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.io - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API references</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="gustaf.html">gustaf</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">gustaf.io</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.spline.html">gustaf.spline</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="gustaf-io">
+<h1>gustaf.io<a class="headerlink" href="#gustaf-io" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-gustaf.io.default">
+<span id="gustaf-io-default"></span><h2>gustaf.io.default<a class="headerlink" href="#module-gustaf.io.default" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.default.load">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.default.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a></span></span><a class="reference internal" href="_modules/gustaf/io/default.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.default.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load function for all supported file formats.</p>
+<p>This function tries to guess the correct io module for the given file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>pathlib.Path</em><em>]</em>) – Name of the file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loaded mesh.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MESH_TYPES</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.io.ioutils">
+<span id="gustaf-io-ioutils"></span><h2>gustaf.io.ioutils<a class="headerlink" href="#module-gustaf.io.ioutils" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/io/ioutils.py.</p>
+<p>utils for lord load and his expected expertise, export.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.ioutils.abs_fname">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.ioutils.</span></span><span class="sig-name descname"><span class="pre">abs_fname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/ioutils.html#abs_fname"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.ioutils.abs_fname" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks if fname is abs. If not, returns abs. Tilde safe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>abs_fname</strong> – Maybe same as fname, maybe not.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.ioutils.check_and_makedirs">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.ioutils.</span></span><span class="sig-name descname"><span class="pre">check_and_makedirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/ioutils.html#check_and_makedirs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.ioutils.check_and_makedirs" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks if the directories of the path exists. If not, makedirs!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.io.meshio">
+<span id="gustaf-io-meshio"></span><h2>gustaf.io.meshio<a class="headerlink" href="#module-gustaf.io.meshio" title="Permalink to this heading">#</a></h2>
+<p>Import a meshio based mesh,</p>
+<p>Export can only happen after it is possible to save and define boundaries in
+gustaf.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.meshio.export">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.meshio.</span></span><span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/meshio.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.meshio.export" title="Permalink to this definition">#</a></dt>
+<dd><p>Currently not implemented function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>MESH_TYPES</em>) – Mesh to be exported.</p></li>
+<li><p><strong>fname</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>pathlib.Path</em><em>]</em>) – File to save the mesh in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – This method is currently not implemented.:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.meshio.load">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.meshio.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a></span></span><a class="reference internal" href="_modules/gustaf/io/meshio.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.meshio.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load mesh in meshio format. Loads vertices and their connectivity.
+Currently cannot process boundary.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is more or less a direct copy from the original gustav implementation.
+A lot of the meshio information are lost. When boundaries and multi-patch
+definitions are added this needs to be revisited and extended.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em><em> | </em><em>pathlib.Path</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>MESH_TYPES</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.io.mfem">
+<span id="gustaf-io-mfem"></span><h2>gustaf.io.mfem<a class="headerlink" href="#module-gustaf.io.mfem" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/io/mfem.py.</p>
+<p>io functions for mfem. Supports simple linear elements (straight meshes)
+For detailed information, see: <a class="reference external" href="https://mfem.org/mesh">https://mfem.org/mesh</a>-
+format-v1.0/#straight-meshes</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.mfem.export">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.mfem.</span></span><span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/mfem.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.mfem.export" title="Permalink to this definition">#</a></dt>
+<dd><p>Export mesh in MFEM format. Supports 2D triangle and quadrilateral
+meshes. Does not support different element attributes or difference in
+vertex dimension and mesh dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><em>Faces</em></a>) – </p></li>
+<li><p><strong>fname</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.mfem.load">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.mfem.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/mfem.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.mfem.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load mesh in MFEM format. Loads vertices and their connectivity.
+Currently cannot process boundary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>mesh</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.io.mixd">
+<span id="gustaf-io-mixd"></span><h2>gustaf.io.mixd<a class="headerlink" href="#module-gustaf.io.mixd" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/io/mixd.py.</p>
+<p>io functions for mixd.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.mixd.export">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.mixd.</span></span><span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/mixd.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.mixd.export" title="Permalink to this definition">#</a></dt>
+<dd><p>Export in mixd format. Supports triangle, quadrilateral, tetrahedron,
+and hexahedron semi-discrete and (flat) space-time mesh output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><em>Faces</em></a><em> or </em><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><em>Volumes</em></a>) – </p></li>
+<li><p><strong>fname</strong> (<em>str</em>) – </p></li>
+<li><p><strong>space_time</strong> (<em>bool</em>) – Export Mesh as Space-Time Slab for discontinuous space-time</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.mixd.load">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.mixd.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simplex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mxyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mien</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mrng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/mixd.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.mixd.load" title="Permalink to this definition">#</a></dt>
+<dd><p>mixd load. To avoid reading minf, all the crucial info can be given as
+params. Default input will try to import <cite>mxyz</cite>, <cite>mien</cite>, <cite>mrng</cite> from
+current location and assumes mesh is 2D triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simplex</strong> (<em>bool</em>) – Default is True. Is it triangle based?</p></li>
+<li><p><strong>volume</strong> (<em>bool</em>) – Default is False. Is it 3D?</p></li>
+<li><p><strong>fname</strong> (<em>str</em>) – Default is None. Specify your mixd file names with “.xns” postfix.
+Ex) “gustaf.xns” will try to load “gustaf.mxyz”, “gustaf.mien”,
+and “gustaf.mrng”</p></li>
+<li><p><strong>mxyz</strong> (<em>str</em>) – Default is None.</p></li>
+<li><p><strong>mien</strong> (<em>str</em>) – Default is None.</p></li>
+<li><p><strong>mrng</strong> (<em>str</em>) – Default is None. This is optional.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces">Faces</a> or <a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes">Volumes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.mixd.make_mrng">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.mixd.</span></span><span class="sig-name descname"><span class="pre">make_mrng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/mixd.html#make_mrng"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.mixd.make_mrng" title="Permalink to this definition">#</a></dt>
+<dd><p>Builds and return mrng array based on <cite>mesh.BC</cite>
+Supports <cite>Faces</cite> and <cite>Volumes</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><em>Faces</em></a><em> or </em><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><em>Volumes</em></a>) – Number of participating elements</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>boundaries</strong> – The mrng-array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.io.nutils">
+<span id="gustaf-io-nutils"></span><h2>gustaf.io.nutils<a class="headerlink" href="#module-gustaf.io.nutils" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/io/nutils.py.</p>
+<p>io functions for nutils.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.nutils.export">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.nutils.</span></span><span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/nutils.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.nutils.export" title="Permalink to this definition">#</a></dt>
+<dd><p>Export in Nutils format. Files are saved as np.savez().
+Supports triangle,and tetrahedron Meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><em>Faces</em></a><em> or </em><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><em>Volumes</em></a>) – </p></li>
+<li><p><strong>fname</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.nutils.load">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.nutils.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/nutils.html#load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.nutils.load" title="Permalink to this definition">#</a></dt>
+<dd><p>nutils load.
+Loads a nutils (np.savez) file and returns a Gustaf Mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – The npz file needs the following keys:
+nodes, cnodes, coords, tags, btags, ptags.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mesh</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces">Faces</a> or <a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes">Volumes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.io.nutils.to_nutils_simplex">
+<span class="sig-prename descclassname"><span class="pre">gustaf.io.nutils.</span></span><span class="sig-name descname"><span class="pre">to_nutils_simplex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/io/nutils.html#to_nutils_simplex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.io.nutils.to_nutils_simplex" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a Gustaf_Mesh to a Dictionary, which can be interpreted
+by <code class="docutils literal notranslate"><span class="pre">nutils.mesh.simplex(**to_nutils_simplex(mesh))</span></code>. Only works for
+Triangles and Tetrahedrons!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><em>Faces</em></a><em> or </em><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><em>Volumes</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dic_to_nutils</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="gustaf.spline.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">gustaf.spline</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="gustaf.helpers.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">gustaf.helpers</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">gustaf.io</a><ul>
+<li><a class="reference internal" href="#module-gustaf.io.default">gustaf.io.default</a><ul>
+<li><a class="reference internal" href="#gustaf.io.default.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.io.ioutils">gustaf.io.ioutils</a><ul>
+<li><a class="reference internal" href="#gustaf.io.ioutils.abs_fname"><code class="docutils literal notranslate"><span class="pre">abs_fname()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.ioutils.check_and_makedirs"><code class="docutils literal notranslate"><span class="pre">check_and_makedirs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.io.meshio">gustaf.io.meshio</a><ul>
+<li><a class="reference internal" href="#gustaf.io.meshio.export"><code class="docutils literal notranslate"><span class="pre">export()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.meshio.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.io.mfem">gustaf.io.mfem</a><ul>
+<li><a class="reference internal" href="#gustaf.io.mfem.export"><code class="docutils literal notranslate"><span class="pre">export()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.mfem.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.io.mixd">gustaf.io.mixd</a><ul>
+<li><a class="reference internal" href="#gustaf.io.mixd.export"><code class="docutils literal notranslate"><span class="pre">export()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.mixd.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.mixd.make_mrng"><code class="docutils literal notranslate"><span class="pre">make_mrng()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.io.nutils">gustaf.io.nutils</a><ul>
+<li><a class="reference internal" href="#gustaf.io.nutils.export"><code class="docutils literal notranslate"><span class="pre">export()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.nutils.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.io.nutils.to_nutils_simplex"><code class="docutils literal notranslate"><span class="pre">to_nutils_simplex()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

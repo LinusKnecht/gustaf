@@ -1,0 +1,64 @@
+
+gustaf.spline
+=============
+
+
+.. toctree::
+   :maxdepth: 4
+
+   gustaf.spline.microstructure
+
+
+
+gustaf.spline.base
+------------------
+
+.. automodule:: gustaf.spline.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.create
+--------------------
+
+.. automodule:: gustaf.spline.create
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.extract
+---------------------
+
+.. automodule:: gustaf.spline.extract
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.ffd
+-----------------
+
+.. automodule:: gustaf.spline.ffd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.proximity
+-----------------------
+
+.. automodule:: gustaf.spline.proximity
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.spline.visualize
+-----------------------
+
+.. automodule:: gustaf.spline.visualize
+   :members:
+   :undoc-members:
+   :show-inheritance:

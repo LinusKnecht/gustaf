@@ -1,0 +1,86 @@
+
+gustaf
+======
+
+
+.. toctree::
+   :maxdepth: 4
+
+   gustaf.create
+   gustaf.helpers
+   gustaf.io
+   gustaf.spline
+   gustaf.utils
+
+
+
+gustaf.edges
+------------
+
+.. automodule:: gustaf.edges
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.faces
+------------
+
+.. automodule:: gustaf.faces
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.meshmaker
+----------------
+
+.. automodule:: gustaf.meshmaker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.segment
+--------------
+
+.. automodule:: gustaf.segment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.settings
+---------------
+
+.. automodule:: gustaf.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.show
+-----------
+
+.. automodule:: gustaf.show
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.vertices
+---------------
+
+.. automodule:: gustaf.vertices
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.volumes
+--------------
+
+.. automodule:: gustaf.volumes
+   :members:
+   :undoc-members:
+   :show-inheritance:

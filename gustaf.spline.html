@@ -1,0 +1,1974 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="gustaf.spline.microstructure" href="gustaf.spline.microstructure.html" /><link rel="prev" title="gustaf.io" href="gustaf.io.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.spline - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API references</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="gustaf.html">gustaf</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">gustaf.spline</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="gustaf-spline">
+<h1>gustaf.spline<a class="headerlink" href="#gustaf-spline" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile2d">gustaf.spline.microstructure.tiles.crosstile2d</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D"><code class="docutils literal notranslate"><span class="pre">CrossTile2D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile3d">gustaf.spline.microstructure.tiles.crosstile3d</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D"><code class="docutils literal notranslate"><span class="pre">CrossTile3D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.inversecrosstile3d">gustaf.spline.microstructure.tiles.inversecrosstile3d</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D"><code class="docutils literal notranslate"><span class="pre">InverseCrossTile3D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.tilebase">gustaf.spline.microstructure.tiles.tilebase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase"><code class="docutils literal notranslate"><span class="pre">TileBase</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.html#module-gustaf.spline.microstructure.microstructure">gustaf.spline.microstructure.microstructure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure"><code class="docutils literal notranslate"><span class="pre">Microstructure</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.__init__"><code class="docutils literal notranslate"><span class="pre">Microstructure.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.create"><code class="docutils literal notranslate"><span class="pre">Microstructure.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.deformation_function"><code class="docutils literal notranslate"><span class="pre">Microstructure.deformation_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.microtile"><code class="docutils literal notranslate"><span class="pre">Microstructure.microtile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.parametrization_function"><code class="docutils literal notranslate"><span class="pre">Microstructure.parametrization_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.show"><code class="docutils literal notranslate"><span class="pre">Microstructure.show()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.html#gustaf.spline.microstructure.microstructure.Microstructure.tiling"><code class="docutils literal notranslate"><span class="pre">Microstructure.tiling</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-gustaf.spline.base">
+<span id="gustaf-spline-base"></span><h2>gustaf.spline.base<a class="headerlink" href="#module-gustaf.spline.base" title="Permalink to this heading">#</a></h2>
+<p>gustaf/spline/base.py.</p>
+<p>Base for splines. Contains show and inherited classes from <cite>spline</cite>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">BSpline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#BSpline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.BSpline" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">GustafSpline</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BSpline</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_vectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#BSpline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.BSpline.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>BSpline of gustaf. Inherited from splinepy.BSpline and GustafSpline.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.extract">
+<span class="sig-name descname"><span class="pre">extract</span></span><a class="headerlink" href="#gustaf.spline.base.BSpline.extract" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.extract.Extractor" title="gustaf.spline.extract.Extractor">Extractor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.create">
+<span class="sig-name descname"><span class="pre">create</span></span><a class="headerlink" href="#gustaf.spline.base.BSpline.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.create.Creator" title="gustaf.spline.create.Creator">Creator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.proximity">
+<span class="sig-name descname"><span class="pre">proximity</span></span><a class="headerlink" href="#gustaf.spline.base.BSpline.proximity" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.proximity.Proximity" title="gustaf.spline.proximity.Proximity">Proximity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<em>(</em><em>para_dim</em><em>,</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>knot_vectors</strong> (<em>(</em><em>para_dim</em><em>, </em><em>...</em><em>) </em><em>list</em>) – </p></li>
+<li><p><strong>control_points</strong> (<em>(</em><em>m</em><em>, </em><em>dim</em><em>) </em><em>list-like</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.bspline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bspline</span></span><a class="headerlink" href="#gustaf.spline.base.BSpline.bspline" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as BSpline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_bspline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.BSpline.nurbs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nurbs</span></span><a class="headerlink" href="#gustaf.spline.base.BSpline.nurbs" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same nurbs. Overwrites one from splinepy to return correct
+type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_nurbs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">Bezier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#Bezier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.Bezier" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">GustafSpline</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Bezier</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#Bezier.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.Bezier.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Bezier of gustaf. Inherited from splinepy.Bezier and GustafSpline.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.extract">
+<span class="sig-name descname"><span class="pre">extract</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.extract" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.extract.Extractor" title="gustaf.spline.extract.Extractor">Extractor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.create">
+<span class="sig-name descname"><span class="pre">create</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.create.Creator" title="gustaf.spline.create.Creator">Creator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.proximity">
+<span class="sig-name descname"><span class="pre">proximity</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.proximity" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.proximity.Proximity" title="gustaf.spline.proximity.Proximity">Proximity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<em>(</em><em>para_dim</em><em>,</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>control_points</strong> (<em>(</em><em>m</em><em>, </em><em>dim</em><em>) </em><em>list-like</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.bezier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bezier</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.bezier" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as Bezier Spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.Bezier" title="gustaf.spline.base.Bezier">Bezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.bspline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bspline</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.bspline" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as BSpline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_bspline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.nurbs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nurbs</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.nurbs" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as nurbs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_nurbs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.Bezier.rationalbezier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rationalbezier</span></span><a class="headerlink" href="#gustaf.spline.base.Bezier.rationalbezier" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as Rational Bezier Spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier">RationalBezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">GustafSpline</span></span><a class="reference internal" href="_modules/gustaf/spline/base.html#GustafSpline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.GustafSpline" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GustafBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#GustafSpline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.GustafSpline.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Constructor as abstractmethod.</p>
+<p>This needs to be inherited first to make sure duplicating
+functions properly override splinepy.Spline</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.create">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><a class="headerlink" href="#gustaf.spline.base.GustafSpline.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns spline creator Can be used to create new splines using
+geometric relations.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prism</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">extrude</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>None</strong> – </p></li>
+<li><p><strong>Returns</strong> – </p></li>
+<li><p><strong>spline.Creator</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.extract">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extract</span></span><a class="headerlink" href="#gustaf.spline.base.GustafSpline.extract" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns spline extractor. Can directly perform extractions available
+at <cite>gustaf/spline/extract.py</cite>. For more info, take a look at
+<cite>gustaf/spline/extract.py</cite>: Extractor.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spline_faces</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">extract</span><span class="o">.</span><span class="n">faces</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>spline_extractor</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.extract.Extractor" title="gustaf.spline.extract.Extractor">Extractor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.proximity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">proximity</span></span><a class="headerlink" href="#gustaf.spline.base.GustafSpline.proximity" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns spline proximity helper. Can directly perform proximity
+queries available at <cite>gustaf/spline/proximity.py</cite>. For more info, take
+a look at <cite>gustaf/spline/proximity.py</cite>: Proximity.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">closest_cp_ids</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">proximity</span><span class="o">.</span><span class="n">closest_control_points</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">closest_cp_ids</span><span class="p">,</span> <span class="n">distances</span> <span class="o">=</span>        <span class="o">...</span>    <span class="n">spline</span><span class="o">.</span><span class="n">proximity</span><span class="o">.</span><span class="n">closest_control_points</span><span class="p">(</span>
+<span class="gp">... </span>      <span class="n">queries</span><span class="p">,</span>
+<span class="gp">... </span>      <span class="n">return_distances</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">... </span>   <span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>spline_proximity</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.proximity.Proximity" title="gustaf.spline.proximity.Proximity">Proximity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#GustafSpline.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.GustafSpline.show" title="Permalink to this definition">#</a></dt>
+<dd><p>Equivalent to <cite>gustaf.spline.base.show(**kwargs)</cite></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.show_options">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show_options</span></span><a class="headerlink" href="#gustaf.spline.base.GustafSpline.show_options" title="Permalink to this definition">#</a></dt>
+<dd><p>Show option manager for splines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>show_options</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.visualize.SplineShowOption" title="gustaf.spline.visualize.SplineShowOption">SplineShowOption</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.showable">
+<span class="sig-name descname"><span class="pre">showable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#GustafSpline.showable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.GustafSpline.showable" title="Permalink to this definition">#</a></dt>
+<dd><p>Equivalent to
+<cite>gustaf.spline.base.show(return_showable=True,**kwargs)</cite></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.GustafSpline.spline_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline_data</span></span><a class="headerlink" href="#gustaf.spline.base.GustafSpline.spline_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Spline data helper for splines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>spline_data</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.helpers.html#gustaf.helpers.data.SplineData" title="gustaf.helpers.data.SplineData">SplineData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">NURBS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#NURBS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.NURBS" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">GustafSpline</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NURBS</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_vectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#NURBS.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.NURBS.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>NURBS of gustaf. Inherited from splinepy.NURBS.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS.extract">
+<span class="sig-name descname"><span class="pre">extract</span></span><a class="headerlink" href="#gustaf.spline.base.NURBS.extract" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.extract.Extractor" title="gustaf.spline.extract.Extractor">Extractor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS.create">
+<span class="sig-name descname"><span class="pre">create</span></span><a class="headerlink" href="#gustaf.spline.base.NURBS.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.create.Creator" title="gustaf.spline.create.Creator">Creator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS.proximity">
+<span class="sig-name descname"><span class="pre">proximity</span></span><a class="headerlink" href="#gustaf.spline.base.NURBS.proximity" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.proximity.Proximity" title="gustaf.spline.proximity.Proximity">Proximity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<em>(</em><em>para_dim</em><em>,</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>knot_vectors</strong> (<em>(</em><em>para_dim</em><em>,</em><em>) </em><em>list</em>) – </p></li>
+<li><p><strong>control_points</strong> (<em>(</em><em>m</em><em>, </em><em>dim</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>weights</strong> (<em>(</em><em>m</em><em>, </em><em>1</em><em>) </em><em>list-like</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.NURBS.nurbs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nurbs</span></span><a class="headerlink" href="#gustaf.spline.base.NURBS.nurbs" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as nurbs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_nurbs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">RationalBezier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#RationalBezier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.RationalBezier" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><code class="xref py py-class docutils literal notranslate"><span class="pre">GustafSpline</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">RationalBezier</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#RationalBezier.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.RationalBezier.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Rational Bezier of gustaf. Inherited from splinepy.RationalBezier
+and GustafSpline.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.extract">
+<span class="sig-name descname"><span class="pre">extract</span></span><a class="headerlink" href="#gustaf.spline.base.RationalBezier.extract" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.extract.Extractor" title="gustaf.spline.extract.Extractor">Extractor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.create">
+<span class="sig-name descname"><span class="pre">create</span></span><a class="headerlink" href="#gustaf.spline.base.RationalBezier.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.create.Creator" title="gustaf.spline.create.Creator">Creator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.proximity">
+<span class="sig-name descname"><span class="pre">proximity</span></span><a class="headerlink" href="#gustaf.spline.base.RationalBezier.proximity" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.proximity.Proximity" title="gustaf.spline.proximity.Proximity">Proximity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>degrees</strong> (<em>(</em><em>para_dim</em><em>,</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>control_points</strong> (<em>(</em><em>m</em><em>, </em><em>dim</em><em>) </em><em>list-like</em>) – </p></li>
+<li><p><strong>weights</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.nurbs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nurbs</span></span><a class="headerlink" href="#gustaf.spline.base.RationalBezier.nurbs" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as nurbs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same_nurbs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.base.RationalBezier.rationalbezier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rationalbezier</span></span><a class="headerlink" href="#gustaf.spline.base.RationalBezier.rationalbezier" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns same parametric representation as Rational Bezier Spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>same</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier">RationalBezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.base.from_mfem">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">from_mfem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nurbs_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#from_mfem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.from_mfem" title="Permalink to this definition">#</a></dt>
+<dd><p>Construct a gustaf NURBS. Reorganizes control points and weights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nurbs_dict</strong> (<em>dict</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>nurbs</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.base.load_splines">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">load_splines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#load_splines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.load_splines" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads and creates gustaf NURBS. Does not perform any check or tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fname</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>gussplines</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.base.show">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.base.</span></span><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/base.html#show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.base.show" title="Permalink to this definition">#</a></dt>
+<dd><p>Shows splines with various options.</p>
+<p>They are excessively listed, so that it can be adjustable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p></li>
+<li><p><strong>resolutions</strong> (<em>int</em><em> or </em><em>(</em><em>spline.para_dim</em><em>,</em><em>) </em><em>array-like</em>) – </p></li>
+<li><p><strong>control_points</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>knots</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>fitting_queries</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>return_discrete</strong> (<em>bool</em>) – Return dict of gustaf discrete objects, for example,
+{Vertices, Edges, Faces}, instead of opening a window</p></li>
+<li><p><strong>return_showable</strong> (<em>bool</em>) – Return dict of showable objects.</p></li>
+<li><p><strong>parametric_space</strong> (<em>bool</em>) – Only relevant for <cite>vedo</cite> backend.</p></li>
+<li><p><strong>c</strong> (<em>str</em>) – Default is None. Black for curves, else green.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – </p></li>
+<li><p><strong>lighting</strong> (<em>str</em>) – </p></li>
+<li><p><strong>control_point_ids</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>color_spline</strong> (<em>str</em>) – </p></li>
+<li><p><strong>cmap</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>things_to_show</strong> – iff return_discrete==True, dict of gustaf objects that are showable.
+iff return_showable==True, dict of backend objects that are showable.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.spline.create">
+<span id="gustaf-spline-create"></span><h2>gustaf.spline.create<a class="headerlink" href="#module-gustaf.spline.create" title="Permalink to this heading">#</a></h2>
+<p>gustaf/spline/create.py.</p>
+<p>Creates splines.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.create.Creator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">Creator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#Creator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.Creator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to build new splines from existing geometries.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_spline</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">spline</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spline_faces</span> <span class="o">=</span> <span class="n">my_spline</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">extrude</span><span class="p">(</span><span class="n">vector</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.create.Creator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#Creator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.Creator.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.create.Creator.extruded">
+<span class="sig-name descname"><span class="pre">extruded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#Creator.extruded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.Creator.extruded" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.create.Creator.parametric_view">
+<span class="sig-name descname"><span class="pre">parametric_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#Creator.parametric_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.Creator.parametric_view" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.create.Creator.revolved">
+<span class="sig-name descname"><span class="pre">revolved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#Creator.revolved"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.Creator.revolved" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.arc">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">arc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#arc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.arc" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a 1-D arc as Rational Bezier or NURBS with given radius and
+angle. The arc lies in the x-y plane and rotates around the z-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em><em>, </em><em>optional</em>) – radius of the arc, defaults to 1</p></li>
+<li><p><strong>angle</strong> (<em>float</em><em>, </em><em>optional</em>) – angle of the section of the arc, defaults to 90 degrees</p></li>
+<li><p><strong>n_knot_spans</strong> (<em>int</em>) – Number of knot spans, by default minimum number for angle is used.</p></li>
+<li><p><strong>start_angle</strong> (<em>float</em><em>, </em><em>optional</em>) – starting point of the angle, by default 0.</p></li>
+<li><p><strong>degree</strong> (<em>bool</em><em>, </em><em>optional</em>) – degrees for angle used, by default True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>arc</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a> or <a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier">RationalBezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.box">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">lengths</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.box" title="Permalink to this definition">#</a></dt>
+<dd><p>ND box (hyper rectangle).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*lengths</strong> (<em>list</em><em>(</em><em>float</em><em>)</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>nd_box</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.Bezier" title="gustaf.spline.base.Bezier">Bezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.circle">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.circle" title="Permalink to this definition">#</a></dt>
+<dd><p>Circle (parametric dim = 1) with radius r in the x-y plane around the
+origin. The spline has an open knot vector and degree 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em><em>, </em><em>optional</em>) – radius, defaults to one</p></li>
+<li><p><strong>n_knots_spans</strong> (<em>int</em><em>, </em><em>optional</em>) – number of knot spans, defaults to 3</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>circle</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.cone">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">cone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outer_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">360.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#cone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.cone" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a cone with circular base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of the base</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Height of the cone</p></li>
+<li><p><strong>volumetric</strong> (<em>bool</em><em>, </em><em>optional</em>) – Parameter whether surface or volume spline, by default True</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Rotation angle in degrees, only used for solid model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>cone</strong> – Volumetric or surface NURBS describing a cone</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.disk">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">disk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outer_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">360.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#disk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.disk" title="Permalink to this definition">#</a></dt>
+<dd><p>Surface spline describing a potentially hollow disk with quadratic
+degree along curved dimension and linear along thickness. The angle
+describes the returned part of the disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outer_radius</strong> (<em>float</em>) – Outer radius of the disk</p></li>
+<li><p><strong>inner_radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Inner radius of the disk, in case of hollow disk, by default 0.</p></li>
+<li><p><strong>angle</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational angle, by default 360. describing a complete revolution</p></li>
+<li><p><strong>n_knot_spans</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of knot spans, by default 4</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>disk</strong> – Surface NURBS of degrees (1,2)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.extruded">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">extruded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extrusion_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#extruded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.extruded" title="Permalink to this definition">#</a></dt>
+<dd><p>Extrudes Splines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><em>GustafSpline</em></a>) – </p></li>
+<li><p><strong>extrusion_vector</strong> (<em>np.ndarray</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.from_bounds">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">from_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parametric_bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">physical_bounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#from_bounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.from_bounds" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a minimal spline with given parametric bounds, physical bounds.
+Physical bounds can have less or equal number of
+dimension as parametric bounds. (Greater is not supported)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parametric_bounds</strong> (<em>(</em><em>2</em><em>, </em><em>n</em><em>) </em><em>array-like</em>) – </p></li>
+<li><p><strong>physical_bounds</strong> (<em>(</em><em>2</em><em>, </em><em>n</em><em>) </em><em>array-like</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>spline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.line">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.line" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a spline with the provided points as control points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>numpy.ndarray</em>) – npoints x ndims array of control points</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>line</strong> – Spline degree [1].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.parametric_view">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">parametric_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#parametric_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.parametric_view" title="Permalink to this definition">#</a></dt>
+<dd><p>Create parametric view of given spline. Previously called
+<cite>naive_spline()</cite>. Degrees are always 1 and knot multiplicity is not
+preserved. Returns BSpline, as BSpline and NURBS should look the same as
+parametric view.
+Will take shallow copy of underlying data of spline_data and show_options
+from original spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p></li>
+<li><p><strong>axes</strong> (<em>bool</em>) – If True, will configure axes settings, it is supported.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>para_spline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.plate">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">plate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#plate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.plate" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a biquadratic 2-D spline in the shape of a plate with given
+radius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Radius of the plate, defaults to one</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>plate</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier">RationalBezier</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.pyramid">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">pyramid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#pyramid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.pyramid" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a volumetric spline in the shape of a pyramid with linear degree
+in every direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – Dimension of base in x-axis</p></li>
+<li><p><strong>length</strong> (<em>float</em>) – Dimension of base in y-axis</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Height in z-direction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pyramid</strong> – Volumetric linear spline in the shape of a pyramid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline">BSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.revolved">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">revolved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#revolved"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.revolved" title="Permalink to this definition">#</a></dt>
+<dd><p>Revolve spline around an axis and extend its parametric dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><em>GustafSpline</em></a>) – Basis-Spline to be revolved</p></li>
+<li><p><strong>axis</strong> (<em>np.ndarray</em>) – Axis of revolution</p></li>
+<li><p><strong>center</strong> (<em>np.ndarray</em>) – Center of revolution</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – angle of the revolution.</p></li>
+<li><p><strong>n_knot_spans</strong> (<em>int</em>) – number of non-zero knot-elements for result-spline (if applicable)</p></li>
+<li><p><strong>degree</strong> (<em>bool</em>) – use degrees instead of radiant</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>spline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline">GustafSpline</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.sphere">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outer_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">360.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#sphere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.sphere" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a volumetric spline describing a sphere with radius R.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outer_radius</strong> (<em>float</em>) – Outer radius of the sphere</p></li>
+<li><p><strong>inner_radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Inner radius of the potentially hollow sphere.</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Rotational angle around x-axis, by default each 360
+(describing a complete revolution)</p></li>
+<li><p><strong>n_knot_spans</strong> (<em>int</em>) – Number of knot spans</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sphere</strong> – Volumetric NURBS with degrees (1,2,2)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.create.torus">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.create.</span></span><span class="sig-name descname"><span class="pre">torus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">torus_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_outer_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_inner_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torus_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torus_n_knot_spans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/create.html#torus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.create.torus" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a volumetric NURBS spline describing a torus revolved around the
+x-axis. Possible cross-sections are plate, disk (yielding a tube) and
+section of a disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>torus_radius</strong> (<em>float</em>) – Radius of the torus</p></li>
+<li><p><strong>section_outer_radius</strong> (<em>float</em>) – Radius of the section of the torus</p></li>
+<li><p><strong>section_inner_radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Inner radius in case of hollow torus, by default 0.</p></li>
+<li><p><strong>torus_angle</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational angle of the torus, by default None, giving a complete
+revolution</p></li>
+<li><p><strong>section_angle</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational angle, by default None, yielding a complete revolution</p></li>
+<li><p><strong>section_n_knot_spans</strong> (<em>float</em><em>, </em><em>optional</em>) – Number of knot spans along the cross-section, by default 4</p></li>
+<li><p><strong>torus_n_knot_spans</strong> (<em>float</em><em>, </em><em>optional</em>) – Number of knot spans along the torus, by default 4</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>torus</strong> – Volumetric spline in the shape of a torus with degrees (1,2,2)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS">NURBS</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.spline.extract">
+<span id="gustaf-spline-extract"></span><h2>gustaf.spline.extract<a class="headerlink" href="#module-gustaf.spline.extract" title="Permalink to this heading">#</a></h2>
+<p>gustaf/spline/extract.py.</p>
+<p>Extract operations. Both discrete and spline extraction.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">Extractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to allow direct extraction from spline obj (BSpline or
+NURBS). Internal use only.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_spline</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">spline</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spline_faces</span> <span class="o">=</span> <span class="n">my_spline</span><span class="o">.</span><span class="n">extract</span><span class="o">.</span><span class="n">faces</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.beziers">
+<span class="sig-name descname"><span class="pre">beziers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.beziers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.beziers" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.boundaries">
+<span class="sig-name descname"><span class="pre">boundaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.boundaries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.boundaries" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.control_edges">
+<span class="sig-name descname"><span class="pre">control_edges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.control_edges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.control_edges" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.control_faces">
+<span class="sig-name descname"><span class="pre">control_faces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.control_faces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.control_faces" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.control_mesh">
+<span class="sig-name descname"><span class="pre">control_mesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.control_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.control_mesh" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.control_points">
+<span class="sig-name descname"><span class="pre">control_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.control_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.control_points" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.control_volumes">
+<span class="sig-name descname"><span class="pre">control_volumes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.control_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.control_volumes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.edges">
+<span class="sig-name descname"><span class="pre">edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.edges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.edges" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.faces">
+<span class="sig-name descname"><span class="pre">faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.faces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.faces" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.spline">
+<span class="sig-name descname"><span class="pre">spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splitting_plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.spline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.spline" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract a spline from a spline.</p>
+<p>Use a (number of) splitting planes to extract a subsection from the
+parametric domain of it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>splitting_plane</strong> (<em>int / dictionary</em><em> (</em><em>int :</em><em> (</em><em>float</em><em>)</em><em>)</em>) – if integer : parametric dimension to be extracted
+if dictionary : list of splitting planes and ranges to be passed</p></li>
+<li><p><strong>interval</strong> (<em>float / tuple&lt;float</em><em>,</em><em>float&gt;</em>) – interval or value in parametric space to be extracted from the
+spline representation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>spline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.extract.Extractor.volumes">
+<span class="sig-name descname"><span class="pre">volumes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#Extractor.volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.Extractor.volumes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.control_edges">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">control_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#control_edges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.control_edges" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract control edges (mesh). Valid iff para_dim is 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edges</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>edges</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges">Edges</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.control_faces">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">control_faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#control_faces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.control_faces" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract control face (mesh). Valid iff para_dim is 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>faces</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces">Faces</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.control_mesh">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">control_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#control_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.control_mesh" title="Permalink to this definition">#</a></dt>
+<dd><p>Calls control_edges, control_faces, control_volumes based on current
+spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>control_mesh</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges">Edges</a> or <a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces">Faces</a> or <a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes">Volumes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.control_points">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">control_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#control_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.control_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Extracts control points and return as vertices. Same can be achieved by
+doing <cite>gustaf.Vertices(spline.control_points)</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>cps_as_Vertices</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices">Vertices</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.control_volumes">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">control_volumes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#control_volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.control_volumes" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract control volumes (mesh). Valid iff para_dim is 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>volumes</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes">Volumes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.edges">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_knot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_knots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#edges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.edges" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract edges (lines) from a given spline. Only entity you can extract
+without dimension limit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<em>Spline</em>) – </p></li>
+<li><p><strong>resolution</strong> (<em>int</em>) – </p></li>
+<li><p><strong>extract_dim</strong> (<em>int</em>) – Parametric dimension to extract.</p></li>
+<li><p><strong>extract_knot</strong> (<em>list</em>) – (spline.para_dim - 1,) shaped knot location along extract_dim</p></li>
+<li><p><strong>all_knots</strong> (<em>bool</em>) – Switch to allow all knot-line extraction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>edges</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges">Edges</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.faces">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#faces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.faces" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract faces from spline. Valid iff para_dim is one of the followings:
+{2, 3}. In case of {3}, it will return only surfaces. If internal faces are
+desired, used <cite>spline.extract.volumes().faces()</cite>. Note that dimension
+higher than 3 is not showable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p></li>
+<li><p><strong>resolutions</strong> (<em>int</em><em> or </em><em>list</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>faces</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>faces</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.spline">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">para_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_plane</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#spline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.spline" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract a sub spline from a given representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>para_dim</strong> (<em>int</em>) – parametric dimension to be extract ted</p></li>
+<li><p><strong>split_plane</strong> (<em>float / tuple&lt;float</em><em>, </em><em>float&gt;</em>) – interval or value in parametric space to be extracted from the spline
+representation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>spline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.extract.volumes">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.extract.</span></span><span class="sig-name descname"><span class="pre">volumes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/extract.html#volumes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.extract.volumes" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract volumes from spline. Valid iff spline.para_dim == 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p></li>
+<li><p><strong>resolutions</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>volumes</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes">Volumes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.spline.ffd">
+<span id="gustaf-spline-ffd"></span><h2>gustaf.spline.ffd<a class="headerlink" href="#module-gustaf.spline.ffd" title="Permalink to this heading">#</a></h2>
+<p>gustaf/gustaf/ffd.py.</p>
+<p>Freeform Deformation!</p>
+<p>Adaptation of previous implementation in internal python package gustav by
+Jaewook Lee.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.ffd.</span></span><span class="sig-name descname"><span class="pre">FFD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gustaf.spline.base.Bezier" title="gustaf.spline.base.Bezier"><span class="pre">Bezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier"><span class="pre">RationalBezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><span class="pre">BSpline</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><span class="pre">NURBS</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GustafBase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gustaf.spline.base.Bezier" title="gustaf.spline.base.Bezier"><span class="pre">Bezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier"><span class="pre">RationalBezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><span class="pre">BSpline</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><span class="pre">NURBS</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Free-form deformation is a method used to deform an object by a
+deformation function. In our case the object is given via a mesh, the
+currently supported mesh-types are given by the variable
+<code class="xref py py-const docutils literal notranslate"><span class="pre">gustaf._typing.MESH_TYPES</span></code>, and the deformations function
+by a spline, supported splines are given by the variable
+:py:const.:<cite>gustaf._typing.SPLINE_TYPES</cite>. The splines parametric
+dimension will be scaled in to a unit-hypercube as well as the
+original meshes vertices. The outline of the resulting mesh is given
+by the physical space of the spline.</p>
+<p>The FFD class provides functions to modify the spline by completely
+overwriting the spline whole spline or parts of it. To obtain the
+deformed mesh mapped into the latest spline, retrieve the mesh
+attribute.</p>
+<p>Please not that even though an object of the class can be initiated
+without a mesh, it is not possible to compute the deformation without
+one. Please ensure that at least a mesh is defined before retrieving
+the (deformed) mesh. If only a mesh is provided a default spline where
+the geometric dimensions have the bounds of the mesh is defined.</p>
+<p>A previously available partial FFD is currently not implemented, and
+is planned to be implemented in a separate class (LocalFFD).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>Optional</em><em>[</em><em>MESH_TYPES</em><em>]</em>) – Mesh used in the FFD. Defaults to None.</p></li>
+<li><p><strong>spline</strong> (<em>Optional</em><em>[</em><em>SPLINE_TYPES</em><em>]</em>) – Spline used in the FFD. Defaults to None.</p></li>
+<li><p><strong>Attributes</strong> (<em>Class</em>) – </p></li>
+<li><p><strong>----------------</strong> – </p></li>
+<li><p><strong>_spline</strong> (<em>SPLINE_TYPES</em>) – Internal current spline</p></li>
+<li><p><strong>_mesh</strong> (<em>MESH_TYPES</em>) – unscaled base mesh</p></li>
+<li><p><strong>_q_vertices</strong> (<em>np.ndarray</em><em> (</em><em>n</em><em>, </em><em>dim</em><em>)</em>) – Scaled vertices of the base mesh</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.control_points">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">control_points</span></span><a class="headerlink" href="#gustaf.spline.ffd.FFD.control_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns current spline’s control points. The control points can be
+directly updated with this.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self._spline.control_points</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.elevate_degree">
+<span class="sig-name descname"><span class="pre">elevate_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.elevate_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.elevate_degree" title="Permalink to this definition">#</a></dt>
+<dd><p>Wrapper for Spline.elevate_degree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – </p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.insert_knots">
+<span class="sig-name descname"><span class="pre">insert_knots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parametric_dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knots</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.insert_knots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.insert_knots" title="Permalink to this definition">#</a></dt>
+<dd><p>Wrapper for Spline.insert_knots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – </p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mesh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.vertices.Vertices" title="gustaf.vertices.Vertices"><span class="pre">Vertices</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.edges.Edges" title="gustaf.edges.Edges"><span class="pre">Edges</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.faces.Faces" title="gustaf.faces.Faces"><span class="pre">Faces</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="gustaf.html#gustaf.volumes.Volumes" title="gustaf.volumes.Volumes"><span class="pre">Volumes</span></a></em><a class="headerlink" href="#gustaf.spline.ffd.FFD.mesh" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns copy of current mesh. Before copying, it applies
+deformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Current Mesh with the deformation according to the current spline.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>MESH_TYPES</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.reduce_degree">
+<span class="sig-name descname"><span class="pre">reduce_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.reduce_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.reduce_degree" title="Permalink to this definition">#</a></dt>
+<dd><p>Wrapper for Spline.reduce_degree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – </p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.remove_knots">
+<span class="sig-name descname"><span class="pre">remove_knots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parametric_dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.remove_knots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.remove_knots" title="Permalink to this definition">#</a></dt>
+<dd><p>Wrapper for Spline.remove_knots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – </p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.show" title="Permalink to this definition">#</a></dt>
+<dd><p>Visualize. Shows the deformed mesh and the current spline. Currently
+visualization is limited to vedo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em>) – Title of the vedo window. Defaults to “gustaf - FFD”.</p></li>
+<li><p><strong>return_showable</strong> (<em>bool</em>) – If true returns a dict of the showable items. Defaults to False.</p></li>
+<li><p><strong>return_discrete</strong> (<em>bool</em>) – Return dict of gustaf discrete objects, for example,
+{Vertices, Edges, Faces}, instead of opening a window.
+Defaults to False.</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – Arbitrary keyword arguments. These are passed onto the vedo
+functions. Please be aware, that no checking of these are performed
+in this function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns, if applicable, the vedo plotter. ‘close=False’ as argument
+to get the plotter.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.showable">
+<span class="sig-name descname"><span class="pre">showable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#FFD.showable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.FFD.showable" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a dictionary of showable items to describe the FFD at the
+current state.</p>
+<p>See show() for more information. This function redirects to it
+directly with the return_showable keyword set to True.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.FFD.spline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.Bezier" title="gustaf.spline.base.Bezier"><span class="pre">Bezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.RationalBezier" title="gustaf.spline.base.RationalBezier"><span class="pre">RationalBezier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><span class="pre">BSpline</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><span class="pre">NURBS</span></a></em><a class="headerlink" href="#gustaf.spline.ffd.FFD.spline" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a copy of the spline. Please use the setter to explicitly
+make changes to the spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self._spline</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spline</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.ffd.is_spline">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.ffd.</span></span><span class="sig-name descname"><span class="pre">is_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gustaf/spline/ffd.html#is_spline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.ffd.is_spline" title="Permalink to this definition">#</a></dt>
+<dd><p>This function checks if the candidate is a spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>candidate</strong> (<em>Any</em>) – object to check for being a spline.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>is_mesh</strong> – Is the given object a sline.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.spline.proximity">
+<span id="gustaf-spline-proximity"></span><h2>gustaf.spline.proximity<a class="headerlink" href="#module-gustaf.spline.proximity" title="Permalink to this heading">#</a></h2>
+<p>gustaf/spline/proximity.py.</p>
+<p>Closest what?</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.proximity.Proximity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.proximity.</span></span><span class="sig-name descname"><span class="pre">Proximity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/proximity.html#Proximity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.proximity.Proximity" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to allow direct proximity queries for spline obj (BSpline
+or NURBS). Internal use only.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_spline</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">spline</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">closest_cp_ids</span> <span class="o">=</span> <span class="n">my_spline</span><span class="o">.</span><span class="n">proximity</span><span class="o">.</span><span class="n">closest_control_points</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.proximity.Proximity.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spl</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/proximity.html#Proximity.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.proximity.Proximity.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.proximity.Proximity.closest_control_points">
+<span class="sig-name descname"><span class="pre">closest_control_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/proximity.html#Proximity.closest_control_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.proximity.Proximity.closest_control_points" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.proximity.closest_control_points">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.proximity.</span></span><span class="sig-name descname"><span class="pre">closest_control_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_distances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/proximity.html#closest_control_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.proximity.closest_control_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns indices of closest control points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spline</strong> (<a class="reference internal" href="#gustaf.spline.base.BSpline" title="gustaf.spline.base.BSpline"><em>BSpline</em></a><em> or </em><a class="reference internal" href="#gustaf.spline.base.NURBS" title="gustaf.spline.base.NURBS"><em>NURBS</em></a>) – </p></li>
+<li><p><strong>query_points</strong> (<em>(</em><em>n</em><em>, </em><em>spline.dim</em><em>) </em><em>np.ndarray</em>) – float</p></li>
+<li><p><strong>return_distances</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>tolerance</strong> (<em>float</em>) – Default is settings.Tolerance. Only relevant iff nearest_only==False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>indices</strong> (<em>(n,) np.ndarray</em>)</p></li>
+<li><p><strong>distances</strong> (<em>(n, spline.dim) np.ndarray</em>) – iff return_distances==True</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.proximity.closest_parametric_coordinate">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.proximity.</span></span><span class="sig-name descname"><span class="pre">closest_parametric_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/proximity.html#closest_parametric_coordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.proximity.closest_parametric_coordinate" title="Permalink to this definition">#</a></dt>
+<dd><p>Finds closest points using.</p>
+</dd></dl>
+
+</section>
+<section id="module-gustaf.spline.visualize">
+<span id="gustaf-spline-visualize"></span><h2>gustaf.spline.visualize<a class="headerlink" href="#module-gustaf.spline.visualize" title="Permalink to this heading">#</a></h2>
+<p>gustaf/spline/visualize.py.</p>
+<p>Spline visualization module. Supports visualization of following spline
+(para_dim, dim) pairs: (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.visualize.SplineShowOption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.visualize.</span></span><span class="sig-name descname"><span class="pre">SplineShowOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/visualize.html#SplineShowOption"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.visualize.SplineShowOption" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="gustaf.helpers.html#gustaf.helpers.options.ShowOption" title="gustaf.helpers.options.ShowOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowOption</span></code></a></p>
+<p>Show options for splines.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.visualize.SplineShowOption.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">helpee</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/visualize.html#SplineShowOption.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.visualize.SplineShowOption.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>helpee</strong> (<a class="reference internal" href="#gustaf.spline.base.GustafSpline" title="gustaf.spline.base.GustafSpline"><em>GustafSpline</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gustaf.spline.visualize.make_showable">
+<span class="sig-prename descclassname"><span class="pre">gustaf.spline.visualize.</span></span><span class="sig-name descname"><span class="pre">make_showable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/visualize.html#make_showable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.visualize.make_showable" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="gustaf.spline.microstructure.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">gustaf.spline.microstructure</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="gustaf.io.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">gustaf.io</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">gustaf.spline</a><ul>
+<li><a class="reference internal" href="#module-gustaf.spline.base">gustaf.spline.base</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline"><code class="docutils literal notranslate"><span class="pre">BSpline</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.__init__"><code class="docutils literal notranslate"><span class="pre">BSpline.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.extract"><code class="docutils literal notranslate"><span class="pre">BSpline.extract</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.create"><code class="docutils literal notranslate"><span class="pre">BSpline.create</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.proximity"><code class="docutils literal notranslate"><span class="pre">BSpline.proximity</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.bspline"><code class="docutils literal notranslate"><span class="pre">BSpline.bspline</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.BSpline.nurbs"><code class="docutils literal notranslate"><span class="pre">BSpline.nurbs</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier"><code class="docutils literal notranslate"><span class="pre">Bezier</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.__init__"><code class="docutils literal notranslate"><span class="pre">Bezier.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.extract"><code class="docutils literal notranslate"><span class="pre">Bezier.extract</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.create"><code class="docutils literal notranslate"><span class="pre">Bezier.create</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.proximity"><code class="docutils literal notranslate"><span class="pre">Bezier.proximity</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.bezier"><code class="docutils literal notranslate"><span class="pre">Bezier.bezier</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.bspline"><code class="docutils literal notranslate"><span class="pre">Bezier.bspline</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.nurbs"><code class="docutils literal notranslate"><span class="pre">Bezier.nurbs</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.Bezier.rationalbezier"><code class="docutils literal notranslate"><span class="pre">Bezier.rationalbezier</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline"><code class="docutils literal notranslate"><span class="pre">GustafSpline</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.__init__"><code class="docutils literal notranslate"><span class="pre">GustafSpline.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.create"><code class="docutils literal notranslate"><span class="pre">GustafSpline.create</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.extract"><code class="docutils literal notranslate"><span class="pre">GustafSpline.extract</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.proximity"><code class="docutils literal notranslate"><span class="pre">GustafSpline.proximity</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.show"><code class="docutils literal notranslate"><span class="pre">GustafSpline.show()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.show_options"><code class="docutils literal notranslate"><span class="pre">GustafSpline.show_options</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.showable"><code class="docutils literal notranslate"><span class="pre">GustafSpline.showable()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.GustafSpline.spline_data"><code class="docutils literal notranslate"><span class="pre">GustafSpline.spline_data</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS"><code class="docutils literal notranslate"><span class="pre">NURBS</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS.__init__"><code class="docutils literal notranslate"><span class="pre">NURBS.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS.extract"><code class="docutils literal notranslate"><span class="pre">NURBS.extract</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS.create"><code class="docutils literal notranslate"><span class="pre">NURBS.create</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS.proximity"><code class="docutils literal notranslate"><span class="pre">NURBS.proximity</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.NURBS.nurbs"><code class="docutils literal notranslate"><span class="pre">NURBS.nurbs</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier"><code class="docutils literal notranslate"><span class="pre">RationalBezier</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.__init__"><code class="docutils literal notranslate"><span class="pre">RationalBezier.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.extract"><code class="docutils literal notranslate"><span class="pre">RationalBezier.extract</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.create"><code class="docutils literal notranslate"><span class="pre">RationalBezier.create</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.proximity"><code class="docutils literal notranslate"><span class="pre">RationalBezier.proximity</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.nurbs"><code class="docutils literal notranslate"><span class="pre">RationalBezier.nurbs</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.RationalBezier.rationalbezier"><code class="docutils literal notranslate"><span class="pre">RationalBezier.rationalbezier</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.base.from_mfem"><code class="docutils literal notranslate"><span class="pre">from_mfem()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.load_splines"><code class="docutils literal notranslate"><span class="pre">load_splines()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.base.show"><code class="docutils literal notranslate"><span class="pre">show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.spline.create">gustaf.spline.create</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.create.Creator"><code class="docutils literal notranslate"><span class="pre">Creator</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.create.Creator.__init__"><code class="docutils literal notranslate"><span class="pre">Creator.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.Creator.extruded"><code class="docutils literal notranslate"><span class="pre">Creator.extruded()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.Creator.parametric_view"><code class="docutils literal notranslate"><span class="pre">Creator.parametric_view()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.Creator.revolved"><code class="docutils literal notranslate"><span class="pre">Creator.revolved()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.create.arc"><code class="docutils literal notranslate"><span class="pre">arc()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.box"><code class="docutils literal notranslate"><span class="pre">box()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.circle"><code class="docutils literal notranslate"><span class="pre">circle()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.cone"><code class="docutils literal notranslate"><span class="pre">cone()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.disk"><code class="docutils literal notranslate"><span class="pre">disk()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.extruded"><code class="docutils literal notranslate"><span class="pre">extruded()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.from_bounds"><code class="docutils literal notranslate"><span class="pre">from_bounds()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.parametric_view"><code class="docutils literal notranslate"><span class="pre">parametric_view()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.plate"><code class="docutils literal notranslate"><span class="pre">plate()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.pyramid"><code class="docutils literal notranslate"><span class="pre">pyramid()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.revolved"><code class="docutils literal notranslate"><span class="pre">revolved()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.sphere"><code class="docutils literal notranslate"><span class="pre">sphere()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.create.torus"><code class="docutils literal notranslate"><span class="pre">torus()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.spline.extract">gustaf.spline.extract</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor"><code class="docutils literal notranslate"><span class="pre">Extractor</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.__init__"><code class="docutils literal notranslate"><span class="pre">Extractor.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.beziers"><code class="docutils literal notranslate"><span class="pre">Extractor.beziers()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.boundaries"><code class="docutils literal notranslate"><span class="pre">Extractor.boundaries()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.control_edges"><code class="docutils literal notranslate"><span class="pre">Extractor.control_edges()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.control_faces"><code class="docutils literal notranslate"><span class="pre">Extractor.control_faces()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.control_mesh"><code class="docutils literal notranslate"><span class="pre">Extractor.control_mesh()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.control_points"><code class="docutils literal notranslate"><span class="pre">Extractor.control_points()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.control_volumes"><code class="docutils literal notranslate"><span class="pre">Extractor.control_volumes()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.edges"><code class="docutils literal notranslate"><span class="pre">Extractor.edges()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.faces"><code class="docutils literal notranslate"><span class="pre">Extractor.faces()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.spline"><code class="docutils literal notranslate"><span class="pre">Extractor.spline()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.Extractor.volumes"><code class="docutils literal notranslate"><span class="pre">Extractor.volumes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.extract.control_edges"><code class="docutils literal notranslate"><span class="pre">control_edges()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.control_faces"><code class="docutils literal notranslate"><span class="pre">control_faces()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.control_mesh"><code class="docutils literal notranslate"><span class="pre">control_mesh()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.control_points"><code class="docutils literal notranslate"><span class="pre">control_points()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.control_volumes"><code class="docutils literal notranslate"><span class="pre">control_volumes()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.edges"><code class="docutils literal notranslate"><span class="pre">edges()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.faces"><code class="docutils literal notranslate"><span class="pre">faces()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.spline"><code class="docutils literal notranslate"><span class="pre">spline()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.extract.volumes"><code class="docutils literal notranslate"><span class="pre">volumes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.spline.ffd">gustaf.spline.ffd</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD"><code class="docutils literal notranslate"><span class="pre">FFD</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.__init__"><code class="docutils literal notranslate"><span class="pre">FFD.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.control_points"><code class="docutils literal notranslate"><span class="pre">FFD.control_points</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.elevate_degree"><code class="docutils literal notranslate"><span class="pre">FFD.elevate_degree()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.insert_knots"><code class="docutils literal notranslate"><span class="pre">FFD.insert_knots()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.mesh"><code class="docutils literal notranslate"><span class="pre">FFD.mesh</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.reduce_degree"><code class="docutils literal notranslate"><span class="pre">FFD.reduce_degree()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.remove_knots"><code class="docutils literal notranslate"><span class="pre">FFD.remove_knots()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.show"><code class="docutils literal notranslate"><span class="pre">FFD.show()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.showable"><code class="docutils literal notranslate"><span class="pre">FFD.showable()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.FFD.spline"><code class="docutils literal notranslate"><span class="pre">FFD.spline</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.ffd.is_spline"><code class="docutils literal notranslate"><span class="pre">is_spline()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.spline.proximity">gustaf.spline.proximity</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.proximity.Proximity"><code class="docutils literal notranslate"><span class="pre">Proximity</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.proximity.Proximity.__init__"><code class="docutils literal notranslate"><span class="pre">Proximity.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.proximity.Proximity.closest_control_points"><code class="docutils literal notranslate"><span class="pre">Proximity.closest_control_points()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.proximity.closest_control_points"><code class="docutils literal notranslate"><span class="pre">closest_control_points()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.proximity.closest_parametric_coordinate"><code class="docutils literal notranslate"><span class="pre">closest_parametric_coordinate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-gustaf.spline.visualize">gustaf.spline.visualize</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.visualize.SplineShowOption"><code class="docutils literal notranslate"><span class="pre">SplineShowOption</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.visualize.SplineShowOption.__init__"><code class="docutils literal notranslate"><span class="pre">SplineShowOption.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gustaf.spline.visualize.make_showable"><code class="docutils literal notranslate"><span class="pre">make_showable()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

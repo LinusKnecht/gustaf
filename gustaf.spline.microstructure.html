@@ -1,0 +1,506 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="gustaf.spline.microstructure.tiles" href="gustaf.spline.microstructure.tiles.html" /><link rel="prev" title="gustaf.spline" href="gustaf.spline.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.spline.microstructure - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API references</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="gustaf.html">gustaf</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="gustaf.spline.html">gustaf.spline</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4 current has-children current-page"><a class="current reference internal" href="#">gustaf.spline.microstructure</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="gustaf-spline-microstructure">
+<h1>gustaf.spline.microstructure<a class="headerlink" href="#gustaf-spline-microstructure" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile2d">gustaf.spline.microstructure.tiles.crosstile2d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D"><code class="docutils literal notranslate"><span class="pre">CrossTile2D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.__init__"><code class="docutils literal notranslate"><span class="pre">CrossTile2D.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.closing_tile"><code class="docutils literal notranslate"><span class="pre">CrossTile2D.closing_tile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile2d.CrossTile2D.create_tile"><code class="docutils literal notranslate"><span class="pre">CrossTile2D.create_tile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.crosstile3d">gustaf.spline.microstructure.tiles.crosstile3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D"><code class="docutils literal notranslate"><span class="pre">CrossTile3D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.__init__"><code class="docutils literal notranslate"><span class="pre">CrossTile3D.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.closing_tile"><code class="docutils literal notranslate"><span class="pre">CrossTile3D.closing_tile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.crosstile3d.CrossTile3D.create_tile"><code class="docutils literal notranslate"><span class="pre">CrossTile3D.create_tile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.inversecrosstile3d">gustaf.spline.microstructure.tiles.inversecrosstile3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D"><code class="docutils literal notranslate"><span class="pre">InverseCrossTile3D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.__init__"><code class="docutils literal notranslate"><span class="pre">InverseCrossTile3D.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.closing_tile"><code class="docutils literal notranslate"><span class="pre">InverseCrossTile3D.closing_tile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.inversecrosstile3d.InverseCrossTile3D.create_tile"><code class="docutils literal notranslate"><span class="pre">InverseCrossTile3D.create_tile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#module-gustaf.spline.microstructure.tiles.tilebase">gustaf.spline.microstructure.tiles.tilebase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase"><code class="docutils literal notranslate"><span class="pre">TileBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.__init__"><code class="docutils literal notranslate"><span class="pre">TileBase.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.dim"><code class="docutils literal notranslate"><span class="pre">TileBase.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.evaluation_points"><code class="docutils literal notranslate"><span class="pre">TileBase.evaluation_points</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="gustaf.spline.microstructure.tiles.html#gustaf.spline.microstructure.tiles.tilebase.TileBase.parameter_space_dimension"><code class="docutils literal notranslate"><span class="pre">TileBase.parameter_space_dimension</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="module-gustaf.spline.microstructure.microstructure">
+<span id="gustaf-spline-microstructure-microstructure"></span><h2>gustaf.spline.microstructure.microstructure<a class="headerlink" href="#module-gustaf.spline.microstructure.microstructure" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gustaf.spline.microstructure.microstructure.</span></span><span class="sig-name descname"><span class="pre">Microstructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deformation_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">microtile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametrization_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/microstructure/microstructure.html#Microstructure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GustafBase</span></code></p>
+<p>Helper class to facilitatae the construction of microstructures.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deformation_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">microtile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametrization_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/microstructure/microstructure.html#Microstructure.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Helper class to facilitatae the construction of microstructures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>deformation_function</strong> (<em>spline</em>) – Outer function that describes the contour of the microstructured
+geometry</p></li>
+<li><p><strong>tiling</strong> (<em>list</em><em> of </em><em>integers</em>) – microtiles per parametric dimension</p></li>
+<li><p><strong>microtile</strong> (<em>spline</em><em> or </em><em>list</em><em> of </em><em>splines</em>) – Representation of the building block defined in the unit cube</p></li>
+<li><p><strong>parametrization_function</strong> (<em>Callable</em><em> (</em><em>optional</em><em>)</em>) – Function to describe spline parameters</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">closing_face</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knot_span_wise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/microstructure/microstructure.html#Microstructure.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a Microstructure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>closing_face</strong> (<em>string</em>) – If not None, Microtile must provide a function <cite>closing_tile</cite>
+Represents coordinate to be a closed surface {“x”, “y”, “z”}</p></li>
+<li><p><strong>knot_span_wise</strong> (<em>bool</em>) – Insertion per knotspan vs. total number per paradim</p></li>
+<li><p><strong>**kwargs</strong> – will be passed to <cite>create_tile</cite> function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Microstructure</strong> – finished microstructure based on object requirements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list&lt;spline&gt;</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.deformation_function">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deformation_function</span></span><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.deformation_function" title="Permalink to this definition">#</a></dt>
+<dd><p>Deformation function defining the outer geometry (contour) of the
+microstructure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>deformation_function</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>spline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.microtile">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">microtile</span></span><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.microtile" title="Permalink to this definition">#</a></dt>
+<dd><p>Microtile that is either a spline, a list of splines, or a class
+that provides a <cite>create_tile</cite> function.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.parametrization_function">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parametrization_function</span></span><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.parametrization_function" title="Permalink to this definition">#</a></dt>
+<dd><p>Function, that - if required - parametrizes the microtiles.</p>
+<p>In order to use said function, the Microtile needs to provide a couple
+of attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>evaluation_points - a list of points defined in the unit cube
+that will be evaluated in the parametrization function to provide
+the required set of data points</p></li>
+<li><p>parameter_space_dimension - dimensionality of the parametrization
+function and number of design variables for said microtile</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>parametrization_function</strong> – Function that descibes the local tile parameters</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_saved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gustaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gustaf/spline/microstructure/microstructure.html#Microstructure.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.show" title="Permalink to this definition">#</a></dt>
+<dd><p>Shows microstructure. Consists of deformation_function, microtile, and
+microstructure. Supported only by vedo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_saved</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>return_gustaf</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>**kwargs</strong> (<em>kwargs</em>) – Will be passed to show function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>gustaf_obj</strong> (<em>dict</em>) – keys are deformation_function, microtile, and microstructure.
+Iff return_gustaf is True.</p></li>
+<li><p><strong>plt</strong> (<em>vedo.Plotter</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gustaf.spline.microstructure.microstructure.Microstructure.tiling">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tiling</span></span><a class="headerlink" href="#gustaf.spline.microstructure.microstructure.Microstructure.tiling" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of microtiles per parametric dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tiling</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list&lt;int&gt;</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="gustaf.spline.microstructure.tiles.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">gustaf.spline.microstructure.tiles</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="gustaf.spline.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">gustaf.spline</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">gustaf.spline.microstructure</a><ul>
+<li><a class="reference internal" href="#module-gustaf.spline.microstructure.microstructure">gustaf.spline.microstructure.microstructure</a><ul>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure"><code class="docutils literal notranslate"><span class="pre">Microstructure</span></code></a><ul>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.__init__"><code class="docutils literal notranslate"><span class="pre">Microstructure.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.create"><code class="docutils literal notranslate"><span class="pre">Microstructure.create()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.deformation_function"><code class="docutils literal notranslate"><span class="pre">Microstructure.deformation_function</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.microtile"><code class="docutils literal notranslate"><span class="pre">Microstructure.microtile</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.parametrization_function"><code class="docutils literal notranslate"><span class="pre">Microstructure.parametrization_function</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.show"><code class="docutils literal notranslate"><span class="pre">Microstructure.show()</span></code></a></li>
+<li><a class="reference internal" href="#gustaf.spline.microstructure.microstructure.Microstructure.tiling"><code class="docutils literal notranslate"><span class="pre">Microstructure.tiling</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

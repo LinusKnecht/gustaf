@@ -1,0 +1,1041 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+        <title>gustaf.spline.create - gustaf 0.0.9 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">gustaf 0.0.9 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">gustaf 0.0.9 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/tataratat/gustaf">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contiributing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules.html">API references</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../gustaf.html">gustaf</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.create.html">gustaf.create</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.helpers.html">gustaf.helpers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.io.html">gustaf.io</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.spline.html">gustaf.spline</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../gustaf.spline.microstructure.html">gustaf.spline.microstructure</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../gustaf.spline.microstructure.tiles.html">gustaf.spline.microstructure.tiles</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../gustaf.utils.html">gustaf.utils</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../details.html">Feature details &amp; options</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../show_options.html">Show Options</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for gustaf.spline.create</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;gustaf/spline/create.py.</span>
+
+<span class="sd">Creates splines.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">gustaf</span> <span class="kn">import</span> <span class="n">settings</span><span class="p">,</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="extruded"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.extruded">[docs]</a><span class="k">def</span> <span class="nf">extruded</span><span class="p">(</span><span class="n">spline</span><span class="p">,</span> <span class="n">extrusion_vector</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extrudes Splines.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    spline: GustafSpline</span>
+<span class="sd">    extrusion_vector: np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">gustaf.spline.base</span> <span class="kn">import</span> <span class="n">GustafSpline</span>
+
+    <span class="c1"># Check input type</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">spline</span><span class="p">),</span> <span class="n">GustafSpline</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Extrude only works for splines&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check extrusion_vector</span>
+    <span class="k">if</span> <span class="n">extrusion_vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># make flat extrusion_vector</span>
+        <span class="n">extrusion_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">extrusion_vector</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No extrusion extrusion_vector given&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check extrusion_vector dimension</span>
+    <span class="c1"># formulate correct cps</span>
+    <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">dim</span> <span class="o">==</span> <span class="n">extrusion_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">cps</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span>
+    <span class="k">elif</span> <span class="n">spline</span><span class="o">.</span><span class="n">dim</span> <span class="o">&lt;</span> <span class="n">extrusion_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">expansion_dimension</span> <span class="o">=</span> <span class="n">extrusion_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">spline</span><span class="o">.</span><span class="n">dim</span>
+        <span class="c1"># one smaller dim is allowed</span>
+        <span class="c1"># warn that we assume new dim is all zero</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Given extrusion vector is </span><span class="si">{</span><span class="n">expansion_dimension</span><span class="si">}</span><span class="s2"> dimension &quot;</span>
+            <span class="s2">&quot;bigger than spline&#39;s dim. Assuming 0.0 entries for &quot;</span>
+            <span class="s2">&quot;new dimension.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">),</span> <span class="n">expansion_dimension</span><span class="p">)),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Dimension Mismatch between extrusion extrusion vector &quot;</span>
+            <span class="s2">&quot;and spline.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Start Extrusion</span>
+    <span class="n">spline_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;degrees&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">spline</span><span class="o">.</span><span class="n">degrees</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">cps</span><span class="p">,</span> <span class="n">cps</span> <span class="o">+</span> <span class="n">extrusion_vector</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">has_knot_vectors</span><span class="p">:</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;knot_vectors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">knot_vectors</span> <span class="o">+</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">is_rational</span><span class="p">:</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;weights&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">spline</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">spline</span><span class="p">)(</span><span class="o">**</span><span class="n">spline_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="revolved"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.revolved">[docs]</a><span class="k">def</span> <span class="nf">revolved</span><span class="p">(</span>
+    <span class="n">spline</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Revolve spline around an axis and extend its parametric dimension.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    spline : GustafSpline</span>
+<span class="sd">      Basis-Spline to be revolved</span>
+<span class="sd">    axis : np.ndarray</span>
+<span class="sd">      Axis of revolution</span>
+<span class="sd">    center : np.ndarray</span>
+<span class="sd">      Center of revolution</span>
+<span class="sd">    angle : float</span>
+<span class="sd">      angle of the revolution.</span>
+<span class="sd">    n_knot_spans : int</span>
+<span class="sd">      number of non-zero knot-elements for result-spline (if applicable)</span>
+<span class="sd">    degree : bool</span>
+<span class="sd">      use degrees instead of radiant</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    spline : GustafSpline</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">gustaf.spline.base</span> <span class="kn">import</span> <span class="n">GustafSpline</span>
+
+    <span class="c1"># Check input type</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">spline</span><span class="p">),</span> <span class="n">GustafSpline</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Revolutions only works for splines&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check axis</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Transform into numpy array</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="c1"># Check Axis dimension</span>
+        <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">axis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Dimension Mismatch between extrusion axis and spline.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">axis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                <span class="s2">&quot;Control Point dimension is smaller than axis dimension,&quot;</span>
+                <span class="s2">&quot; filling with zeros&quot;</span>
+            <span class="p">)</span>
+            <span class="n">expansion_dimension</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">spline</span><span class="o">.</span><span class="n">dim</span>
+            <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                        <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">),</span> <span class="n">expansion_dimension</span><span class="p">)</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">)</span>
+
+        <span class="c1"># Make sure axis is normalized</span>
+
+        <span class="n">axis_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">axis_norm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">TOLERANCE</span><span class="p">):</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">/</span> <span class="n">axis_norm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Axis-norm is too close to zero.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">control_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No rotation axis given&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Set Problem dimension</span>
+    <span class="n">problem_dimension</span> <span class="o">=</span> <span class="n">cps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Make sure axis is ignored for 2D</span>
+    <span class="k">if</span> <span class="n">problem_dimension</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Update angle</span>
+    <span class="k">if</span> <span class="n">angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">spline</span><span class="o">.</span><span class="n">_logd</span><span class="p">(</span><span class="s2">&quot;No angle given for the revolution. Using 360 degrees.&quot;</span><span class="p">)</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="mi">360</span>
+
+    <span class="k">if</span> <span class="n">degree</span><span class="p">:</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+    <span class="c1"># Init center</span>
+    <span class="k">if</span> <span class="n">center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="c1"># Check Axis dimension</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">problem_dimension</span> <span class="o">==</span> <span class="n">center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Dimension Mismatch between axis and center of rotation.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">cps</span> <span class="o">-=</span> <span class="n">center</span>
+
+    <span class="c1"># The parametric dimension is independent of the revolution but the</span>
+    <span class="c1"># rotation-matrix is only implemented for 2D and 3D problems</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">cps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;Sorry,&quot;</span> <span class="s2">&quot;revolutions only implemented for 2D and 3D splines&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Angle must be (0, pi) non including</span>
+    <span class="c1"># Rotation is always performed in half steps</span>
+    <span class="n">PI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">minimum_n_knot_spans</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">angle</span> <span class="o">+</span> <span class="n">settings</span><span class="o">.</span><span class="n">TOLERANCE</span><span class="p">)</span> <span class="o">/</span> <span class="n">PI</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n_knot_spans</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n_knot_spans</span> <span class="o">&lt;</span> <span class="n">minimum_n_knot_spans</span><span class="p">):</span>
+        <span class="n">n_knot_spans</span> <span class="o">=</span> <span class="n">minimum_n_knot_spans</span>
+
+    <span class="k">if</span> <span class="s2">&quot;Bezier&quot;</span> <span class="ow">in</span> <span class="n">spline</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n_knot_spans</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Revolutions are only supported for angles up to 180 &quot;</span>
+                <span class="s2">&quot;degrees for Bezier type splines as they consist of only &quot;</span>
+                <span class="s2">&quot;one knot span&quot;</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Determine auxiliary values</span>
+    <span class="n">rot_a</span> <span class="o">=</span> <span class="n">angle</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_knot_spans</span><span class="p">)</span>
+    <span class="n">half_counter_angle</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">rot_a</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">half_counter_angle</span><span class="p">)</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">weight</span>
+
+    <span class="c1"># Determine rotation matrix</span>
+    <span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">arr</span><span class="o">.</span><span class="n">rotation_matrix_around_axis</span><span class="p">(</span>
+        <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="n">rot_a</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># Start Extrusion</span>
+    <span class="n">spline_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;degrees&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">spline</span><span class="o">.</span><span class="n">degrees</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cps</span>
+    <span class="n">end_points</span> <span class="o">=</span> <span class="n">cps</span>
+    <span class="k">for</span> <span class="n">i_segment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_knot_spans</span><span class="p">):</span>
+        <span class="c1"># Rotate around axis</span>
+        <span class="n">mid_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">end_points</span><span class="p">,</span> <span class="n">rotation_matrix</span><span class="p">)</span>
+        <span class="n">end_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">mid_points</span><span class="p">,</span> <span class="n">rotation_matrix</span><span class="p">)</span>
+        <span class="c1"># Move away from axis using dot-product tricks</span>
+        <span class="k">if</span> <span class="n">problem_dimension</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">mp_scale</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mid_points</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">mid_points</span> <span class="o">=</span> <span class="p">(</span><span class="n">mid_points</span> <span class="o">-</span> <span class="n">mp_scale</span><span class="p">)</span> <span class="o">*</span> <span class="n">factor</span> <span class="o">+</span> <span class="n">mp_scale</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mid_points</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">],</span> <span class="n">mid_points</span><span class="p">,</span> <span class="n">end_points</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">has_knot_vectors</span><span class="p">:</span>
+        <span class="n">kv</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">kv</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_knot_spans</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;knot_vectors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">knot_vectors</span> <span class="o">+</span> <span class="p">[</span>
+            <span class="n">kv</span> <span class="o">+</span> <span class="p">[</span><span class="n">n_knot_spans</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="p">]</span>
+    <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">is_rational</span><span class="p">:</span>
+        <span class="n">mid_weights</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">weights</span> <span class="o">*</span> <span class="n">weight</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;weights&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">weights</span>
+        <span class="k">for</span> <span class="n">i_segment</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_knot_spans</span><span class="p">):</span>
+            <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;weights&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;weights&quot;</span><span class="p">],</span> <span class="n">mid_weights</span><span class="p">,</span> <span class="n">spline</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s2">&quot;True revolutions are only possible for rational spline types.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Creating Approximation.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">center</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">spline_dict</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">center</span>
+
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">spline</span><span class="p">)(</span><span class="o">**</span><span class="n">spline_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="from_bounds"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.from_bounds">[docs]</a><span class="k">def</span> <span class="nf">from_bounds</span><span class="p">(</span><span class="n">parametric_bounds</span><span class="p">,</span> <span class="n">physical_bounds</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a minimal spline with given parametric bounds, physical bounds.</span>
+<span class="sd">    Physical bounds can have less or equal number of</span>
+<span class="sd">    dimension as parametric bounds. (Greater is not supported)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    parametric_bounds: (2, n) array-like</span>
+<span class="sd">    physical_bounds: (2, n) array-like</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    spline: BSpline</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">physical_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">physical_bounds</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">parametric_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">parametric_bounds</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># get correctly sized bez box</span>
+    <span class="n">phys_size</span> <span class="o">=</span> <span class="n">physical_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">physical_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># minimal bspline</span>
+    <span class="n">bspline_box</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">phys_size</span><span class="p">)</span><span class="o">.</span><span class="n">bspline</span>  <span class="c1"># kvs are in [0, 1]</span>
+    <span class="n">bspline_box</span><span class="o">.</span><span class="n">cps</span> <span class="o">+=</span> <span class="n">physical_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># apply offset</span>
+
+    <span class="c1"># update parametric bounds</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kv</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bspline_box</span><span class="o">.</span><span class="n">kvs</span><span class="p">):</span>
+        <span class="c1"># apply scale and offset</span>
+        <span class="n">new_kv</span> <span class="o">=</span> <span class="p">(</span><span class="n">kv</span> <span class="o">*</span> <span class="n">parametric_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">parametric_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">bspline_box</span><span class="o">.</span><span class="n">kvs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_kv</span>
+
+    <span class="k">return</span> <span class="n">bspline_box</span></div>
+
+
+<div class="viewcode-block" id="parametric_view"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.parametric_view">[docs]</a><span class="k">def</span> <span class="nf">parametric_view</span><span class="p">(</span><span class="n">spline</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create parametric view of given spline. Previously called</span>
+<span class="sd">    `naive_spline()`. Degrees are always 1 and knot multiplicity is not</span>
+<span class="sd">    preserved. Returns BSpline, as BSpline and NURBS should look the same as</span>
+<span class="sd">    parametric view.</span>
+<span class="sd">    Will take shallow copy of underlying data of spline_data and show_options</span>
+<span class="sd">    from original spline.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    spline: BSpline or NURBS</span>
+<span class="sd">    axes: bool</span>
+<span class="sd">     If True, will configure axes settings, it is supported.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    para_spline: BSpline</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p_bounds</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">parametric_bounds</span>
+    <span class="n">para_spline</span> <span class="o">=</span> <span class="n">from_bounds</span><span class="p">(</span>
+        <span class="n">parametric_bounds</span><span class="o">=</span><span class="n">p_bounds</span><span class="p">,</span> <span class="n">physical_bounds</span><span class="o">=</span><span class="n">p_bounds</span>
+    <span class="p">)</span>
+
+    <span class="c1"># loop through knot vectors and insert missing knots</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kv</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spline</span><span class="o">.</span><span class="n">unique_knots</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">para_spline</span><span class="o">.</span><span class="n">insert_knots</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># take shallow copy</span>
+    <span class="n">para_spline</span><span class="o">.</span><span class="n">_spline_data</span><span class="o">.</span><span class="n">_saved</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">spline_data</span><span class="o">.</span><span class="n">_saved</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">para_spline</span><span class="o">.</span><span class="n">_show_options</span><span class="o">.</span><span class="n">_options</span><span class="p">[</span>
+        <span class="n">para_spline</span><span class="o">.</span><span class="n">_show_options</span><span class="o">.</span><span class="n">_backend</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">spline</span><span class="o">.</span><span class="n">show_options</span><span class="o">.</span><span class="n">_options</span><span class="p">[</span><span class="n">spline</span><span class="o">.</span><span class="n">_show_options</span><span class="o">.</span><span class="n">_backend</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">axes</span> <span class="ow">and</span> <span class="s2">&quot;axes&quot;</span> <span class="ow">in</span> <span class="n">spline</span><span class="o">.</span><span class="n">show_options</span><span class="o">.</span><span class="n">valid_keys</span><span class="p">():</span>
+        <span class="c1"># configure axes</span>
+        <span class="n">bs</span> <span class="o">=</span> <span class="n">p_bounds</span>
+        <span class="n">bs_diff_001</span> <span class="o">=</span> <span class="p">(</span><span class="n">bs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.001</span>
+        <span class="n">lower_b</span> <span class="o">=</span> <span class="n">bs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bs_diff_001</span>
+        <span class="n">upper_b</span> <span class="o">=</span> <span class="n">bs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bs_diff_001</span>
+        <span class="n">axes_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">xtitle</span><span class="o">=</span><span class="s2">&quot;u&quot;</span><span class="p">,</span>
+            <span class="n">ytitle</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+            <span class="n">xrange</span><span class="o">=</span><span class="p">[</span><span class="n">lower_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">upper_b</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+            <span class="n">yrange</span><span class="o">=</span><span class="p">[</span><span class="n">lower_b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">upper_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+            <span class="n">tip_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">xminor_ticks</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">yminor_ticks</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">xygrid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">yzgrid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">spline</span><span class="o">.</span><span class="n">para_dim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">axes_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ztitle</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+            <span class="n">axes_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">zrange</span><span class="o">=</span><span class="p">[</span><span class="n">lower_b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">upper_b</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+            <span class="n">axes_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">zminor_ticks</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">axes_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">zxgrid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">para_spline</span><span class="o">.</span><span class="n">show_options</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">axes_config</span>
+        <span class="c1"># it is a view, so cps won&#39;t be realistic</span>
+        <span class="n">para_spline</span><span class="o">.</span><span class="n">show_options</span><span class="p">[</span><span class="s2">&quot;control_points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">para_spline</span><span class="o">.</span><span class="n">show_options</span><span class="p">[</span><span class="s2">&quot;lighting&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
+
+    <span class="k">return</span> <span class="n">para_spline</span></div>
+
+
+<div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.line">[docs]</a><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a spline with the provided points as control points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    points: (n, d) numpy.ndarray</span>
+<span class="sd">      npoints x ndims array of control points</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    line: BSpline</span>
+<span class="sd">      Spline degree [1].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">gustaf</span> <span class="kn">import</span> <span class="n">BSpline</span>
+
+    <span class="c1"># lines have degree 1</span>
+    <span class="n">degree</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">nknots</span> <span class="o">=</span> <span class="n">cps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">knots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">nknots</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">degree</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">spline</span> <span class="o">=</span> <span class="n">BSpline</span><span class="p">(</span>
+        <span class="n">control_points</span><span class="o">=</span><span class="n">cps</span><span class="p">,</span> <span class="n">knot_vectors</span><span class="o">=</span><span class="p">[</span><span class="n">knots</span><span class="p">],</span> <span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="n">degree</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">spline</span></div>
+
+
+<div class="viewcode-block" id="arc"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.arc">[docs]</a><span class="k">def</span> <span class="nf">arc</span><span class="p">(</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span>
+    <span class="n">n_knot_spans</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">start_angle</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a 1-D arc as Rational Bezier or NURBS with given radius and</span>
+<span class="sd">    angle. The arc lies in the x-y plane and rotates around the z-axis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : float, optional</span>
+<span class="sd">      radius of the arc, defaults to 1</span>
+<span class="sd">    angle : float, optional</span>
+<span class="sd">      angle of the section of the arc, defaults to 90 degrees</span>
+<span class="sd">    n_knot_spans : int</span>
+<span class="sd">      Number of knot spans, by default minimum number for angle is used.</span>
+<span class="sd">    start_angle : float, optional</span>
+<span class="sd">      starting point of the angle, by default 0.</span>
+<span class="sd">    degree: bool, optional</span>
+<span class="sd">      degrees for angle used, by default True</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    arc: NURBS or RationalBezier</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">gustaf</span> <span class="kn">import</span> <span class="n">RationalBezier</span>
+
+    <span class="c1"># Define point spline of degree 0 at starting point of the arc</span>
+    <span class="k">if</span> <span class="n">degree</span><span class="p">:</span>
+        <span class="n">start_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">start_angle</span><span class="p">)</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+    <span class="n">start_point</span> <span class="o">=</span> <span class="p">[</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">start_angle</span><span class="p">),</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">start_angle</span><span class="p">)]</span>
+    <span class="n">point_spline</span> <span class="o">=</span> <span class="n">RationalBezier</span><span class="p">(</span>
+        <span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">control_points</span><span class="o">=</span><span class="p">[</span><span class="n">start_point</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># Bezier splines only support angles lower than 180 degrees</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="ow">or</span> <span class="n">n_knot_spans</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">point_spline</span> <span class="o">=</span> <span class="n">point_spline</span><span class="o">.</span><span class="n">nurbs</span>
+
+    <span class="c1"># Revolve - set degree to False, since all the angles are converted to rad</span>
+    <span class="n">arc_attrib</span> <span class="o">=</span> <span class="n">point_spline</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">revolved</span><span class="p">(</span>
+        <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">n_knot_spans</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">todict</span><span class="p">()</span>
+    <span class="c1"># Remove the first parametric dimensions, which is only a point and</span>
+    <span class="c1"># only used for the revolution</span>
+    <span class="n">arc_attrib</span><span class="p">[</span><span class="s2">&quot;degrees&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">arc_attrib</span><span class="p">[</span><span class="s2">&quot;degrees&quot;</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">point_spline</span><span class="o">.</span><span class="n">has_knot_vectors</span><span class="p">:</span>
+        <span class="n">arc_attrib</span><span class="p">[</span><span class="s2">&quot;knot_vectors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">arc_attrib</span><span class="p">[</span><span class="s2">&quot;knot_vectors&quot;</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">point_spline</span><span class="p">)(</span><span class="o">**</span><span class="n">arc_attrib</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="circle"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.circle">[docs]</a><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Circle (parametric dim = 1) with radius r in the x-y plane around the</span>
+<span class="sd">    origin. The spline has an open knot vector and degree 2.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : float, optional</span>
+<span class="sd">      radius, defaults to one</span>
+<span class="sd">    n_knots_spans : int, optional</span>
+<span class="sd">      number of knot spans, defaults to 3</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    circle: NURBS</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">arc</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">n_knot_spans</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="box"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.box">[docs]</a><span class="k">def</span> <span class="nf">box</span><span class="p">(</span><span class="o">*</span><span class="n">lengths</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ND box (hyper rectangle).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    *lengths: list(float)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nd_box: Bezier</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">gustaf</span> <span class="kn">import</span> <span class="n">Bezier</span>
+
+    <span class="c1"># may dim check here?</span>
+    <span class="c1"># starting point</span>
+    <span class="n">nd_box</span> <span class="o">=</span> <span class="n">Bezier</span><span class="p">(</span><span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">control_points</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]]])</span>
+    <span class="c1"># use extrude</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">nd_box</span> <span class="o">=</span> <span class="n">nd_box</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">extruded</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">l</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">nd_box</span></div>
+
+
+<div class="viewcode-block" id="plate"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.plate">[docs]</a><span class="k">def</span> <span class="nf">plate</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a biquadratic 2-D spline in the shape of a plate with given</span>
+<span class="sd">    radius.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : float, optional</span>
+<span class="sd">      Radius of the plate, defaults to one</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    plate: RationalBezier</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">gustaf.spline</span> <span class="kn">import</span> <span class="n">RationalBezier</span>
+
+    <span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">control_points</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span>
+                <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="o">*</span> <span class="n">radius</span>
+    <span class="p">)</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="mi">5</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">RationalBezier</span><span class="p">(</span>
+        <span class="n">degrees</span><span class="o">=</span><span class="n">degrees</span><span class="p">,</span> <span class="n">control_points</span><span class="o">=</span><span class="n">control_points</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="disk"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.disk">[docs]</a><span class="k">def</span> <span class="nf">disk</span><span class="p">(</span>
+    <span class="n">outer_radius</span><span class="p">,</span>
+    <span class="n">inner_radius</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mf">360.0</span><span class="p">,</span>
+    <span class="n">n_knot_spans</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Surface spline describing a potentially hollow disk with quadratic</span>
+<span class="sd">    degree along curved dimension and linear along thickness. The angle</span>
+<span class="sd">    describes the returned part of the disk.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    outer_radius : float</span>
+<span class="sd">      Outer radius of the disk</span>
+<span class="sd">    inner_radius : float, optional</span>
+<span class="sd">      Inner radius of the disk, in case of hollow disk, by default 0.</span>
+<span class="sd">    angle : float, optional</span>
+<span class="sd">      Rotational angle, by default 360. describing a complete revolution</span>
+<span class="sd">    n_knot_spans : int, optional</span>
+<span class="sd">      Number of knot spans, by default 4</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    disk: NURBS</span>
+<span class="sd">      Surface NURBS of degrees (1,2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">gustaf.spline</span> <span class="kn">import</span> <span class="n">NURBS</span>
+
+    <span class="k">if</span> <span class="n">inner_radius</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">inner_radius</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">cps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">inner_radius</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="n">outer_radius</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]])</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">cps</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">knots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">NURBS</span><span class="p">(</span>
+        <span class="n">control_points</span><span class="o">=</span><span class="n">cps</span><span class="p">,</span> <span class="n">knot_vectors</span><span class="o">=</span><span class="p">[</span><span class="n">knots</span><span class="p">],</span> <span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">revolved</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">n_knot_spans</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="torus"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.torus">[docs]</a><span class="k">def</span> <span class="nf">torus</span><span class="p">(</span>
+    <span class="n">torus_radius</span><span class="p">,</span>
+    <span class="n">section_outer_radius</span><span class="p">,</span>
+    <span class="n">section_inner_radius</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">torus_angle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">section_angle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">section_n_knot_spans</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">torus_n_knot_spans</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a volumetric NURBS spline describing a torus revolved around the</span>
+<span class="sd">    x-axis. Possible cross-sections are plate, disk (yielding a tube) and</span>
+<span class="sd">    section of a disk.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    torus_radius : float</span>
+<span class="sd">      Radius of the torus</span>
+<span class="sd">    section_outer_radius : float</span>
+<span class="sd">      Radius of the section of the torus</span>
+<span class="sd">    section_inner_radius : float, optional</span>
+<span class="sd">      Inner radius in case of hollow torus, by default 0.</span>
+<span class="sd">    torus_angle : float, optional</span>
+<span class="sd">      Rotational angle of the torus, by default None, giving a complete</span>
+<span class="sd">      revolution</span>
+<span class="sd">    section_angle : float, optional</span>
+<span class="sd">      Rotational angle, by default None, yielding a complete revolution</span>
+<span class="sd">    section_n_knot_spans : float, optional</span>
+<span class="sd">      Number of knot spans along the cross-section, by default 4</span>
+<span class="sd">    torus_n_knot_spans : float, optional</span>
+<span class="sd">      Number of knot spans along the torus, by default 4</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    torus: NURBS</span>
+<span class="sd">      Volumetric spline in the shape of a torus with degrees (1,2,2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">torus_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">torus_angle</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">degree</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">section_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">section_angle</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">section_angle_flag</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">degree</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">section_angle_flag</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">section_inner_radius</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">section_inner_radius</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">section_inner_radius_flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">section_inner_radius_flag</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Create the cross-section</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">section_angle_flag</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">section_inner_radius_flag</span><span class="p">:</span>
+        <span class="n">cross_section</span> <span class="o">=</span> <span class="n">plate</span><span class="p">(</span><span class="n">section_outer_radius</span><span class="p">)</span>
+        <span class="c1"># For more than 180 degree only NURBS can be used</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">torus_angle</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span>
+            <span class="n">cross_section</span> <span class="o">=</span> <span class="n">cross_section</span><span class="o">.</span><span class="n">nurbs</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cross_section</span> <span class="o">=</span> <span class="n">disk</span><span class="p">(</span>
+            <span class="n">outer_radius</span><span class="o">=</span><span class="n">section_outer_radius</span><span class="p">,</span>
+            <span class="n">inner_radius</span><span class="o">=</span><span class="n">section_inner_radius</span><span class="p">,</span>
+            <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">section_n_knot_spans</span><span class="p">,</span>
+            <span class="n">angle</span><span class="o">=</span><span class="n">section_angle</span><span class="p">,</span>
+            <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Create a surface spline representing a disk and move it from the origin</span>
+    <span class="n">cross_section</span><span class="o">.</span><span class="n">control_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">torus_radius</span>
+
+    <span class="k">return</span> <span class="n">cross_section</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">revolved</span><span class="p">(</span>
+        <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">center</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+        <span class="n">angle</span><span class="o">=</span><span class="n">torus_angle</span><span class="p">,</span>
+        <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">torus_n_knot_spans</span><span class="p">,</span>
+        <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sphere"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.sphere">[docs]</a><span class="k">def</span> <span class="nf">sphere</span><span class="p">(</span>
+    <span class="n">outer_radius</span><span class="p">,</span>
+    <span class="n">inner_radius</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mf">360.0</span><span class="p">,</span>
+    <span class="n">n_knot_spans</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a volumetric spline describing a sphere with radius R.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    outer_radius : float</span>
+<span class="sd">      Outer radius of the sphere</span>
+<span class="sd">    inner_radius : float, optional</span>
+<span class="sd">      Inner radius of the potentially hollow sphere.</span>
+<span class="sd">    angle : float</span>
+<span class="sd">      Rotational angle around x-axis, by default each 360</span>
+<span class="sd">      (describing a complete revolution)</span>
+<span class="sd">    n_knot_spans : int</span>
+<span class="sd">      Number of knot spans</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sphere: NURBS</span>
+<span class="sd">      Volumetric NURBS with degrees (1,2,2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">inner_radius</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sphere</span> <span class="o">=</span> <span class="n">plate</span><span class="p">(</span><span class="n">outer_radius</span><span class="p">)</span><span class="o">.</span><span class="n">nurbs</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">revolved</span><span class="p">(</span>
+            <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span>
+            <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">n_knot_spans</span><span class="p">,</span>
+            <span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inner_radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inner_radius</span><span class="p">)</span>
+        <span class="n">sphere</span> <span class="o">=</span> <span class="n">disk</span><span class="p">(</span><span class="n">outer_radius</span><span class="p">,</span> <span class="n">inner_radius</span><span class="p">)</span><span class="o">.</span><span class="n">nurbs</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">revolved</span><span class="p">(</span>
+            <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span> <span class="n">n_knot_spans</span><span class="o">=</span><span class="n">n_knot_spans</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">degree</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">sphere</span></div>
+
+
+<div class="viewcode-block" id="cone"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.cone">[docs]</a><span class="k">def</span> <span class="nf">cone</span><span class="p">(</span>
+    <span class="n">outer_radius</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">,</span>
+    <span class="n">inner_radius</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">volumetric</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">angle</span><span class="o">=</span><span class="mf">360.0</span><span class="p">,</span>
+    <span class="n">degree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a cone with circular base.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : float</span>
+<span class="sd">      Radius of the base</span>
+<span class="sd">    height : float</span>
+<span class="sd">      Height of the cone</span>
+<span class="sd">    volumetric : bool, optional</span>
+<span class="sd">      Parameter whether surface or volume spline, by default True</span>
+<span class="sd">    angle : float</span>
+<span class="sd">      Rotation angle in degrees, only used for solid model</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cone: NURBS</span>
+<span class="sd">      Volumetric or surface NURBS describing a cone</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">volumetric</span><span class="p">:</span>
+        <span class="n">ground</span> <span class="o">=</span> <span class="n">disk</span><span class="p">(</span>
+            <span class="n">outer_radius</span><span class="p">,</span> <span class="n">inner_radius</span><span class="o">=</span><span class="n">inner_radius</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="n">degree</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ground</span> <span class="o">=</span> <span class="n">circle</span><span class="p">(</span><span class="n">outer_radius</span><span class="p">)</span>
+
+    <span class="c1"># Extrude in z</span>
+    <span class="n">cone</span> <span class="o">=</span> <span class="n">ground</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">extruded</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">])</span>
+    <span class="c1"># Move all upper control points to one</span>
+    <span class="n">cone</span><span class="o">.</span><span class="n">control_points</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">cone</span><span class="o">.</span><span class="n">control_points</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">height</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">cone</span></div>
+
+
+<div class="viewcode-block" id="pyramid"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.pyramid">[docs]</a><span class="k">def</span> <span class="nf">pyramid</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a volumetric spline in the shape of a pyramid with linear degree</span>
+<span class="sd">    in every direction.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    width : float</span>
+<span class="sd">      Dimension of base in x-axis</span>
+<span class="sd">    length : float</span>
+<span class="sd">      Dimension of base in y-axis</span>
+<span class="sd">    height : float</span>
+<span class="sd">      Height in z-direction</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyramid: BSpline</span>
+<span class="sd">      Volumetric linear spline in the shape of a pyramid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create box</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+    <span class="c1"># Collapse all upper points on one control point</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">control_points</span><span class="p">[</span><span class="mi">4</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">p</span></div>
+
+
+<div class="viewcode-block" id="Creator"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.Creator">[docs]</a><span class="k">class</span> <span class="nc">Creator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper class to build new splines from existing geometries.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; my_spline = &lt;your-spline&gt;</span>
+<span class="sd">    &gt;&gt;&gt; spline_faces = my_spline.create.extrude(vector=[3,1,3])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Creator.__init__"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.Creator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spl</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spline</span> <span class="o">=</span> <span class="n">spl</span></div>
+
+<div class="viewcode-block" id="Creator.extruded"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.Creator.extruded">[docs]</a>    <span class="k">def</span> <span class="nf">extruded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">extruded</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spline</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Creator.revolved"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.Creator.revolved">[docs]</a>    <span class="k">def</span> <span class="nf">revolved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">revolved</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spline</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Creator.parametric_view"><a class="viewcode-back" href="../../../gustaf.spline.html#gustaf.spline.create.Creator.parametric_view">[docs]</a>    <span class="k">def</span> <span class="nf">parametric_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">parametric_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spline</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Jaewook Lee
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+
+gustaf.io
+=========
+
+
+.. toctree::
+   :maxdepth: 4
+
+
+
+
+gustaf.io.default
+-----------------
+
+.. automodule:: gustaf.io.default
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.io.ioutils
+-----------------
+
+.. automodule:: gustaf.io.ioutils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.io.meshio
+----------------
+
+.. automodule:: gustaf.io.meshio
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.io.mfem
+--------------
+
+.. automodule:: gustaf.io.mfem
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.io.mixd
+--------------
+
+.. automodule:: gustaf.io.mixd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+gustaf.io.nutils
+----------------
+
+.. automodule:: gustaf.io.nutils
+   :members:
+   :undoc-members:
+   :show-inheritance:
